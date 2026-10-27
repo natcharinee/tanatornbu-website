@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block titlebar %}
+<div class="titlebar"><div class="wrap">
+  <p class="titlebar__name">{{ t.cat[s.cat] }}</p>
+  <nav class="crumb" aria-label="{{ t.crumbAria }}"><a href="{{ prefix }}/">{{ t.home }}</a> / <a href="{{ prefix }}/works/">{{ t.works }}</a> / <a href="{{ prefix }}/works/#{{ s.cat }}">{{ t.cat[s.cat] }}</a></nav>
+</div></div>
+{% endblock %}
+{% block main %}
+<section class="series-top">
+  <div class="wrap">
+    <div class="series-title">
+      <h1>{{ s.title }}</h1>
+      <dl class="meta">
+        <dt>{{ t.mediumL }}</dt><dd>{{ t.cat[s.cat] }}</dd>
+        <dt>{{ t.worksL }}</dt><dd>{{ s.count }}</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+{% if concept %}
+<section class="concept">
+  <div class="wrap">
+    <p class="label">{{ t.conceptL }}</p>
+    <div class="concept__body">
+      <p class="concept__lead">{{ concept.lead }}</p>
+      {% for p in concept.p %}<p>{{ p }}</p>{% endfor %}
+      {% if concept.quote %}<blockquote>{{ concept.quote }}</blockquote>{% endif %}
+    </div>
+  </div>
+</section>
+{% else %}
+<div style="height: clamp(48px, 5vw, 72px)"></div>
+{% endif %}
+
+<section class="gallery" aria-label="{{ t.gridAria }}">
+  {% if s.works %}
+  <div class="wrap">
+    {% for w in s.works %}
+    <button type="button" class="work" data-full="/assets/img/lg/{{ w.file }}" data-title="{{ w.title }}" data-meta="{{ w.meta }}" aria-label="{{ t.openW }}: {{ w.title }}">
+      <span class="work__img"><img src="/assets/img/md/{{ w.file }}" alt="{{ w.title }}" loading="lazy"></span>
+      <span class="work__title">{{ w.title }}</span>
+      {% if w.meta %}<span class="work__meta">{{ w.meta }}</span>{% endif %}
+    </button>
+    {% endfor %}
+  </div>
+  {% if s.works|length < s.count %}<p class="wrap" style="margin-top: 56px; text-align: center; font-family: var(--serif); font-style: italic; color: var(--muted)">{{ t.moreSoon }}</p>{% endif %}
+  {% else %}
+  <div class="wrap"><p class="soon">{{ t.soonWorks }}</p></div>
+  {% endif %}
+</section>
+
+<nav class="pager" aria-label="{{ t.works }}">
+  <div class="wrap">
+    <a href="{{ prefix }}/works/">{{ t.back }}</a>
+    <a href="{{ prefix }}/works/{{ next.slug }}/">{{ t.nextL }}: {{ next.title }} →</a>
+  </div>
+</nav>
+
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="{{ s.title }}">
+  <div class="lb-top">
+    <span class="lb-count"></span>
+    <button type="button" class="lb-btn lb-close" aria-label="{{ t.close }}"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="lb-stage">
+    <button type="button" class="lb-btn lb-prev" aria-label="{{ t.prevW }}"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <img src="" alt="">
+    <button type="button" class="lb-btn lb-next" aria-label="{{ t.nextW }}"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="lb-cap"><p></p><small></small></div>
+</div>
+{% endblock %}

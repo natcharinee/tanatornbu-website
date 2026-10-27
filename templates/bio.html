@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block titlebar %}
+<div class="titlebar"><div class="wrap">
+  <p class="titlebar__name">{{ t.bio }}</p>
+  <nav class="crumb" aria-label="{{ t.crumbAria }}"><a href="{{ prefix }}/">{{ t.home }}</a> / <span>{{ t.bio }}</span></nav>
+</div></div>
+{% endblock %}
+{% block main %}
+<section class="bio">
+  <div class="wrap">
+    <figure>
+      <img src="/assets/img/md/portrait-bw.jpg" srcset="/assets/img/md/portrait-bw.jpg 675w, /assets/img/lg/portrait-bw.jpg 1080w" sizes="(max-width: 960px) 100vw, 520px" alt="{{ t.portraitAlt }}">
+    </figure>
+    <div class="bio__text">
+      <p class="kicker">{{ t.bioKicker }}</p>
+      <h1>Tanatorn<br>Buranasinlapin</h1>
+      <p class="label">{{ t.born }}</p>
+      <p class="bio__lead">{{ t.bioLead }}</p>
+      <div class="prose">{% for p in t.bioP %}<p>{{ p }}</p>{% endfor %}</div>
+      <a class="btn" href="/files/tanatorn-buranasinlapin-cv.pdf" download>{{ t.download }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="cv" aria-labelledby="cv-title">
+  <div class="wrap">
+    <div class="cv__head">
+      <p class="kicker">{{ t.cvKicker }}</p>
+      <h2 id="cv-title">{{ t.cvTitle }}</h2>
+    </div>
+    {% for g in cv %}
+    <div class="cv__group">
+      <h3>{{ g.title }}</h3>
+      <ul>
+        {% for it in g['items'] %}
+        <li><span class="cv__y">{{ it.y }}</span><span class="cv__t"><strong>{{ it.t }}</strong>{% if it.d %}<span>{{ it.d }}</span>{% endif %}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,239 @@
+[
+  {
+    "slug": "symphony-from-the-sea",
+    "cat": "painting",
+    "title": "Symphony from the Sea",
+    "count": 28,
+    "cover": "evening-by-the-seashore.jpg",
+    "tone": "#34474F",
+    "concept": {
+      "en": {
+        "lead": "This series of paintings is created in the form of Abstract Art, inspired by the natural essence of the sea, the shoreline, and the surrounding atmosphere at various times of the day.",
+        "p": [
+          "The works employ an abstract compositional structure combined with color tones that reflect different moments in time, conveying inner emotions and the shifting ambiance as time passes. Through the interplay of abstract forms, hues, and the nuances of light and shadow, the paintings aim not only to present visual beauty but also to evoke the intangible “atmosphere” of the sea — its serenity, vastness, vitality, and even its solitude.",
+          "The works avoid direct references to recognizable natural forms, relying instead on color, rhythmic lines, spatial arrangements, and textures. This approach emphasizes “feeling” over “form”. Each piece becomes not merely a painting but a space for perception, emotional resonance, and boundless interpretation."
+        ],
+        "quote": "“Art is not simply something expressed, but something that connects — between the artist and the self, between the painting and the viewer, and between emotions and memory.”"
+      },
+      "th": {
+        "lead": "ผลงานจิตรกรรมชุดนี้สร้างสรรค์ในรูปแบบนามธรรม (Abstract Art) โดยมีแรงบันดาลใจจากธรรมชาติของท้องทะเล หาดทราย และบรรยากาศโดยรอบในช่วงเวลาที่ต่างกัน",
+        "p": [
+          "เพื่อสื่อถึงความรู้สึกภายในและบรรยากาศที่เปลี่ยนแปลงไปตามกาลเวลา โดยอาศัยโครงสร้างองค์ประกอบเชิงนามธรรม ผสมผสานกับโทนสีที่สะท้อนอารมณ์และแสงเงาในแต่ละช่วงของวัน แนวความคิดของผลงานชุดนี้มิได้มุ่งเน้นเพียงความสวยงามทางสายตาเท่านั้น แต่ยังมุ่งหวังให้ผู้ชมได้สัมผัส “บรรยากาศ” ของทะเลด้วยความรู้สึกนามธรรม — ความสงบ ความเวิ้งว้าง ความมีชีวิตชีวา หรือแม้แต่ความเหงา",
+          "ข้าพเจ้าเลือกนำเสนอผลงานในแบบนามธรรม ซึ่งหลีกเลี่ยงการอ้างอิงรูปทรงของวัตถุที่ชัดเจนในธรรมชาติ และหันไปใช้ “สี” “จังหวะของเส้น” “พื้นที่ว่าง” และ “พื้นผิว” เป็นเครื่องมือหลักในการถ่ายทอด โดยให้ความสำคัญกับ “ความรู้สึก” มากกว่า “รูปทรง” ผลงานจึงมิใช่เพียงภาพวาด แต่เป็นพื้นที่แห่งการรับรู้และการสัมผัสอารมณ์ร่วมที่ไร้กรอบจำกัด"
+        ],
+        "quote": "“ศิลปะไม่ใช่เพียง ‘สิ่งที่แสดงออก’ แต่คือ ‘สิ่งที่เชื่อมโยง’ — ระหว่างศิลปินกับตัวเอง ระหว่างผลงานกับผู้ชม และระหว่างอารมณ์กับความทรงจำที่ฝังลึกอยู่ในจิตใจ”"
+      },
+      "zh": {
+        "lead": "本系列绘画以抽象艺术的形式创作，灵感源自大海、海岸以及一天中不同时刻的周遭氛围。",
+        "p": [
+          "作品以抽象的构图结构，结合映照不同时刻的色调，传达内在情感与随时间流转的氛围变化。透过抽象形态、色彩以及光影的微妙变化，这些画作不仅呈现视觉之美，更试图唤起大海那无形的“氛围”——它的宁静、辽阔、生机，乃至孤独。",
+          "作品刻意避免直接描绘可辨识的自然形象，而以色彩、线条的节奏、空间布局与肌理作为主要的视觉语言。这种方式强调“感受”胜于“形式”。每件作品因此不仅是一幅画，更是一个感知、情感共鸣与无限诠释的空间。"
+        ],
+        "quote": "“艺术不仅是‘表达’，更是‘连接’——连接艺术家与自我、作品与观者，以及情感与深藏心底的记忆。”"
+      },
+      "fr": {
+        "lead": "Cette série de peintures relève de l’art abstrait. Elle s’inspire de l’essence de la mer, du rivage et de l’atmosphère environnante aux différents moments de la journée.",
+        "p": [
+          "Les œuvres associent une structure de composition abstraite à des tonalités qui reflètent chaque moment du jour, traduisant des émotions intérieures et l’ambiance changeante du temps qui passe. Par le jeu des formes, des couleurs, de la lumière et de l’ombre, ces peintures ne cherchent pas seulement la beauté visuelle : elles veulent faire ressentir l’« atmosphère » insaisissable de la mer — sa sérénité, son immensité, sa vitalité, et même sa solitude.",
+          "Les œuvres évitent toute référence directe à des formes naturelles reconnaissables et s’appuient sur la couleur, le rythme des lignes, l’organisation de l’espace et la texture. Cette approche privilégie le « ressenti » plutôt que la « forme ». Chaque pièce devient ainsi non pas simplement une peinture, mais un espace de perception, de résonance émotionnelle et d’interprétation sans limites."
+        ],
+        "quote": "« L’art n’est pas seulement ce qui s’exprime, mais ce qui relie — l’artiste à lui-même, l’œuvre au spectateur, et les émotions aux souvenirs enfouis au plus profond de l’esprit. »"
+      }
+    },
+    "works": [
+      {"file": "evening-by-the-seashore.jpg", "title": "Evening by the Seashore"},
+      {"file": "a-serene-day-at-the-seaside.jpg", "title": "A Serene Day at the Seaside"},
+      {"file": "blue-serenity.jpg", "title": "Blue Serenity"},
+      {"file": "breeze-on-the-beach.jpg", "title": "Breeze on the Beach"},
+      {"file": "by-the-sea.jpg", "title": "By the Sea"},
+      {"file": "diary-of-the-beach-no1.jpg", "title": "Diary of the Beach No.1"},
+      {"file": "diary-of-the-beach-no2.jpg", "title": "Diary of the Beach No.2"},
+      {"file": "evening-lullaby-from-the-sea.jpg", "title": "Evening Lullaby from the Sea"},
+      {"file": "happy-day-on-the-beach.jpg", "title": "Happy Day on the Beach"},
+      {"file": "melody-for-a-past-love-by-the-sea.jpg", "title": "Melody for a Past Love by the Sea"},
+      {"file": "melody-of-the-evening.jpg", "title": "Melody of the Evening"},
+      {"file": "melody-of-the-wind.jpg", "title": "Melody of the Wind"},
+      {"file": "reflections-by-the-sea.jpg", "title": "Reflections by the Sea"},
+      {"file": "song-of-the-dusk-sea.jpg", "title": "Song of the Dusk Sea"},
+      {"file": "symbol-no1.jpg", "title": "Symbol No.1"},
+      {"file": "symbols-in-the-sand.jpg", "title": "Symbols in the Sand"},
+      {"file": "symphony-from-the-sea-no3.jpg", "title": "Symphony from the Sea No.3"},
+      {"file": "symphony-from-the-sea-no5.jpg", "title": "Symphony from the Sea No.5"},
+      {"file": "symphony-of-the-dawn.jpg", "title": "Symphony of the Dawn"},
+      {"file": "symphony-of-the-dawn-no1.jpg", "title": "Symphony of the Dawn No.1"},
+      {"file": "symphony-of-the-dawn-no2.jpg", "title": "Symphony of the Dawn No.2"},
+      {"file": "symphony-of-the-lonely-sea.jpg", "title": "Symphony of the Lonely Sea"},
+      {"file": "twilight-at-the-beach.jpg", "title": "Twilight at the Beach"},
+      {"file": "twilight-by-the-shore.jpg", "title": "Twilight by the Shore"},
+      {"file": "visions-from-the-shore.jpg", "title": "Visions from the Shore"},
+      {"file": "walking-alone-on-the-sandy-beach.jpg", "title": "Walking Alone on the Sandy Beach"},
+      {"file": "when-the-evening-come.jpg", "title": "When the Evening Come"},
+      {"file": "whispers-of-the-sea.jpg", "title": "Whispers of the Sea"}
+    ]
+  },
+  {
+    "slug": "non-relationship-between-nature-and-technology",
+    "cat": "sculpture",
+    "title": "Non-relationship between Nature and Technology",
+    "count": 15,
+    "cover": "non-relation-of-technology-2024.jpg",
+    "tone": "#4A4038",
+    "works": [
+      {"file": "non-relation-of-technology-2024.jpg", "title": "Non Relation of Technology", "year": "2024"},
+      {"file": "life-and-techno-no2.jpg", "title": "Life and Techno 2"},
+      {"file": "nr-life-and-technology-3.jpg", "title": "Life and Technology 3 (Growing)"},
+      {"file": "nr-life-and-technology-1-1.jpg", "title": "Life and Technology 1.1"},
+      {"file": "nr-life-and-technology-fly.jpg", "title": "Life and Technology (Fly… Fly… to the Sky) 2"},
+      {"file": "nr-life-and-technology-7.jpg", "title": "Life and Technology 7"},
+      {"file": "nr-black-remains-of-tree.jpg", "title": "Black Remains of Tree and Technology"},
+      {"file": "nr-nature-and-technology.jpg", "title": "Nature and Technology"},
+      {"file": "nr-remains-of-tree-transformation-2.jpg", "title": "Remains of Tree Transformation 2", "year": "2023"},
+      {"file": "nr-tree-of-technology.jpg", "title": "Tree of Technology", "year": "2022"},
+      {"file": "nr-inside-out.jpg", "title": "Inside Out", "year": "2024"},
+      {"file": "nr-mountain-and-cloud.jpg", "title": "Mountain and Cloud"},
+      {"file": "nr-untitled-1.jpg", "title": "Untitled"},
+      {"file": "nr-untitled-2.jpg", "title": "Untitled"},
+      {"file": "nr-untitled-3.jpg", "title": "Untitled"}
+    ]
+  },
+  {
+    "slug": "sila-hathai",
+    "cat": "sculpture",
+    "title": "Sila-Hathai [Heart and Meaning]",
+    "count": 15,
+    "tone": "#5A4E43",
+    "cover": "sh-heart-and-meaning-2.jpg",
+    "works": [
+      {"file": "sh-heart-and-meaning-2.jpg", "title": "Heart and Meaning 2 (สาว 18)"},
+      {"file": "sh-blue-lullaby.jpg", "title": "Blue Lullaby"},
+      {"file": "sh-lullaby-for-growing-up-baby.jpg", "title": "Lullaby for Growing Up Baby"},
+      {"file": "sh-like-a-virgin.jpg", "title": "Like a Virgin"},
+      {"file": "sh-little-girl.jpg", "title": "Little Girl"},
+      {"file": "sh-mechanical-civilization.jpg", "title": "Mechanical Civilization"},
+      {"file": "sh-mechanical-seed-genesis.jpg", "title": "Mechanical Seed Genesis"},
+      {"file": "sh-mechanical-seed-prototype.jpg", "title": "Mechanical Seed Prototype"},
+      {"file": "sh-modern-woman.jpg", "title": "Modern Woman"},
+      {"file": "sh-new-civilization.jpg", "title": "New Civilization"},
+      {"file": "sh-origin-core.jpg", "title": "Origin Core"},
+      {"file": "sh-the-age-of-machines.jpg", "title": "The Age of Machines"},
+      {"file": "sh-the-suffering-of-hunted-animals.jpg", "title": "The Suffering of Hunted Animals"},
+      {"file": "sh-when-i-dream-i-see-only-death.jpg", "title": "When I Dream, I See Only Death"},
+      {"file": "sh-zen.jpg", "title": "Zen"}
+    ]
+  },
+  {
+    "slug": "into-the-edge-of-digital-era",
+    "cat": "computer",
+    "title": "Into the Edge of Digital Era",
+    "count": 16,
+    "tone": "#2C3350",
+    "cover": "edge-of-digital-era-01.jpg",
+    "works": [
+      {"file": "edge-of-digital-era-01.jpg", "title": "Guardian of the Spiritual"},
+      {"file": "edge-of-digital-era-02.jpg", "title": "Buddha in the Landscape of Digital Sieve"},
+      {"file": "edge-of-digital-era-03.jpg", "title": "Da Da Da African"},
+      {"file": "edge-of-digital-era-04.jpg", "title": "Dharma Is Nature"},
+      {"file": "edge-of-digital-era-05.jpg", "title": "Emotion II"},
+      {"file": "edge-of-digital-era-06.jpg", "title": "Japan, Japan"},
+      {"file": "edge-of-digital-era-07.jpg", "title": "Japanese Buddha"},
+      {"file": "edge-of-digital-era-08.jpg", "title": "Japanese Culture"},
+      {"file": "edge-of-digital-era-09.jpg", "title": "Just for You Jesus Christ"},
+      {"file": "edge-of-digital-era-10.jpg", "title": "Relation of Life"},
+      {"file": "edge-of-digital-era-11.jpg", "title": "Self-Taught"},
+      {"file": "edge-of-digital-era-12.jpg", "title": "Stone's Story"},
+      {"file": "edge-of-digital-era-13.jpg", "title": "The Thinker in a World of Multi-Culture"},
+      {"file": "edge-of-digital-era-14.jpg", "title": "Nature"},
+      {"file": "edge-of-digital-era-15.jpg", "title": "Keep in Touch"},
+      {"file": "edge-of-digital-era-16.jpg", "title": "Stone's Culture"}
+    ]
+  },
+  {
+    "slug": "deja-vu",
+    "cat": "computer",
+    "title": "Déjà Vu",
+    "count": 15,
+    "cover": "life-and-time.jpg",
+    "coverPos": "18% center",
+    "tone": "#3A2318",
+    "works": [
+      {"file": "life-and-time.jpg", "title": "Life and Time"},
+      {"file": "deja-vu-01.jpg", "title": "Adam with a Chair of Apple and Snails"},
+      {"file": "deja-vu-02.jpg", "title": "Birth of Venus", "year": "2018"},
+      {"file": "deja-vu-03.jpg", "title": "Diary of Nightmare"},
+      {"file": "deja-vu-04.jpg", "title": "Last Song for 23–24 Nov Protest", "year": "2012"},
+      {"file": "deja-vu-05.jpg", "title": "Miss You Too… Salvador Dalí"},
+      {"file": "deja-vu-06.jpg", "title": "My Enigma of William Tell", "year": "2012"},
+      {"file": "deja-vu-07.jpg", "title": "Nightmare with the Tree of Subconscious"},
+      {"file": "deja-vu-08.jpg", "title": "Old Men and Venus"},
+      {"file": "deja-vu-09.jpg", "title": "Self-Transformation with Apple"},
+      {"file": "deja-vu-10.jpg", "title": "Smoking Self-Portrait Breaking Frame"},
+      {"file": "deja-vu-11.jpg", "title": "Three Ugly Men and a Snake"},
+      {"file": "deja-vu-12.jpg", "title": "Untitled"},
+      {"file": "deja-vu-13.jpg", "title": "Man Civilizations"},
+      {"file": "deja-vu-14.jpg", "title": "Pittura Metafisica, Suffering Man"}
+    ]
+  },
+  {
+    "slug": "sky-scape",
+    "cat": "computer",
+    "title": "Sky Scape",
+    "count": 12,
+    "tone": "#3E5468",
+    "cover": "sky-scape-01.jpg",
+    "works": [
+      {"file": "sky-scape-01.jpg", "title": "Sky Scape 1"},
+      {"file": "sky-scape-02.jpg", "title": "Sky Scape 2"},
+      {"file": "sky-scape-03.jpg", "title": "Sky Scape 3"},
+      {"file": "sky-scape-04.jpg", "title": "Sky Scape 4"},
+      {"file": "sky-scape-05.jpg", "title": "Sky Scape 5"},
+      {"file": "sky-scape-06.jpg", "title": "Sky Scape 6"},
+      {"file": "sky-scape-09.jpg", "title": "Sky Scape 9"},
+      {"file": "sky-scape-10.jpg", "title": "Sky Scape 10"},
+      {"file": "sky-scape-12.jpg", "title": "Sky Scape 12"},
+      {"file": "sky-scape-13.jpg", "title": "Sky Scape 13"},
+      {"file": "sky-scape-14.jpg", "title": "Sky Scape 14"},
+      {"file": "sky-scape-15.jpg", "title": "Sky Scape 15"}
+    ]
+  },
+  {
+    "slug": "belief-and-faith",
+    "cat": "drawing",
+    "title": "Belief and Faith",
+    "count": 10,
+    "tone": "#3E3B36",
+    "cover": "belief-and-faith-01.jpg",
+    "works": [
+      {"file": "belief-and-faith-01.jpg", "title": "Belief and Faith No.1"},
+      {"file": "belief-and-faith-02.jpg", "title": "Belief and Faith No.2"},
+      {"file": "belief-and-faith-03.jpg", "title": "Belief and Faith No.3"},
+      {"file": "belief-and-faith-04.jpg", "title": "Belief and Faith No.4"},
+      {"file": "belief-and-faith-05.jpg", "title": "Belief and Faith No.5"},
+      {"file": "belief-and-faith-06.jpg", "title": "Belief and Faith No.6"},
+      {"file": "belief-and-faith-07.jpg", "title": "Belief and Faith No.7"},
+      {"file": "belief-and-faith-08.jpg", "title": "Belief and Faith No.8"},
+      {"file": "belief-and-faith-09.jpg", "title": "Belief and Faith No.9"},
+      {"file": "belief-and-faith-10.jpg", "title": "Belief and Faith No.10"}
+    ]
+  },
+  {
+    "slug": "time-form-and-space",
+    "cat": "drawing",
+    "title": "Time, Form and Space",
+    "count": 11,
+    "tone": "#4B4842",
+    "cover": "tfs-sivalinga.jpg",
+    "works": [
+      {"file": "tfs-object-space-gravity-and-her.jpg", "title": "Object, Space, Gravity and Her", "year": "2007"},
+      {"file": "tfs-timeless-object-and-space-gravity.jpg", "title": "Timeless Object and Space, Gravity", "year": "2007"},
+      {"file": "tfs-to-be-born-on-space-and-gravity.jpg", "title": "To Be Born on Space and Gravity", "year": "2007"},
+      {"file": "tfs-to-be-born-on-space-and-gravity-detail.jpg", "title": "To Be Born on Space and Gravity (detail)", "year": "2007"},
+      {"file": "tfs-timeless-object-on-space.jpg", "title": "Timeless Object on Space", "year": "2007"},
+      {"file": "tfs-detail-from-no2.jpg", "title": "Detail from No.2"},
+      {"file": "tfs-object-space-and-gravity.jpg", "title": "Object, Space and Gravity", "year": "2009"},
+      {"file": "tfs-object-space-and-gravity-detail.jpg", "title": "Object, Space and Gravity (detail)", "year": "2009"},
+      {"file": "tfs-her-object-space-and-gravity.jpg", "title": "Her Object, Space and Gravity", "year": "2009"},
+      {"file": "tfs-object-space-and-gravity-2.jpg", "title": "Object, Space and Gravity", "year": "2009"},
+      {"file": "tfs-sivalinga.jpg", "title": "Sivalinga", "year": "2009"}
+    ]
+  }
+]

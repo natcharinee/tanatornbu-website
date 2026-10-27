@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block titlebar %}
+<div class="titlebar"><div class="wrap">
+  <h1>{{ t.worksTitle }}</h1>
+  <nav class="crumb" aria-label="{{ t.crumbAria }}"><a href="{{ prefix }}/">{{ t.home }}</a> / <span>{{ t.works }}</span></nav>
+</div></div>
+{% endblock %}
+{% block main %}
+<section class="page-head">
+  <div class="filters" role="group" aria-label="{{ t.filterAria }}">
+    <button type="button" data-cat="all" aria-pressed="true">{{ t.all }}</button>
+    {% for k, name in t.cat.items() %}<button type="button" data-cat="{{ k }}" aria-pressed="false">{{ name }}</button>
+    {% endfor %}
+  </div>
+</section>
+<section class="series-grid">
+  <div class="wrap">
+    {% for s in series %}
+    <a class="card" data-cat="{{ s.cat }}" href="{{ prefix }}/works/{{ s.slug }}/">
+      <div class="card__img" style="background: {{ s.tone }}">
+        {% if s.cover %}<img src="/assets/img/md/{{ s.cover }}" alt="" loading="lazy" style="object-position: {{ s.coverPos or 'center' }}">{% endif %}
+      </div>
+      <div class="card__over">
+        <p class="card__cat">{{ t.cat[s.cat] }}</p>
+        <p class="card__title">{{ s.title }}</p>
+        <p class="card__count">{% if s.cover %}{{ t.worksCount.replace('{n}', s.count|string) }}{% else %}{{ t.soon }}{% endif %}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
