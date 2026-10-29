@@ -23,7 +23,10 @@ LANGS = [
     {'key': 'fr', 'prefix': '/fr'},
 ]
 # Home page banner image(s), from series.json works; more than one becomes a slideshow
-HOME_BANNER = ['life-and-techno-no2.jpg']
+HOME_BANNER = ['melody-of-the-evening.jpg']
+# Small framed work shown in the banner's corner (None to hide)
+HOME_INSET = 'life-and-techno-no2.jpg'
+HOME_BANNER_POS = {'melody-of-the-evening.jpg': '68% 40%'}
 FONT_BASE = 'family=Lora:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&family=Dosis:wght@400;500'
 FONT_EXTRA = {
     'th': '&family=Noto+Serif+Thai:wght@400;500&family=Sarabun:wght@300;400;700',
@@ -117,13 +120,16 @@ def main():
             fmt = t['seriesOne'] if n == 1 else t['seriesMany']
             cats.append({'key': k, 'name': t['cat'][k], 'meta': fmt.replace('{n}', str(n)),
                          'img': cat_imgs[k][0], 'pos': cat_imgs[k][1], 'tone': cat_tones[k]})
-        slides = []
+        slides, inset = [], None
         for s in series:
             for w in s.get('works', []):
+                item = {'file': w['file'], 'title': w['title'], 'series': s['title'], 'cat': t['cat'][s['cat']], 'slug': s['slug'],
+                        'pos': HOME_BANNER_POS.get(w['file'], s.get('coverPos', 'center') if w['file'] == s.get('cover') else 'center')}
                 if w['file'] in HOME_BANNER:
-                    slides.append({'file': w['file'], 'title': w['title'], 'series': s['title'], 'cat': t['cat'][s['cat']],
-                                   'slug': s['slug'], 'pos': s.get('coverPos', 'center') if w['file'] == s.get('cover') else 'center'})
-        urls.append(render('home.html', 'index.html', lang, '/', section='home', overlay=True, cats=cats, slides=slides,
+                    slides.append(item)
+                if w['file'] == HOME_INSET:
+                    inset = item
+        urls.append(render('home.html', 'index.html', lang, '/', section='home', overlay=True, cats=cats, slides=slides, inset=inset,
                            page_title=name + ' — ' + t['role'], page_desc=t['siteDesc'], og_image=og_default, jsonld=person))
         urls.append(render('works.html', 'works/index.html', lang, '/works/', section='works', overlay=False, series=series,
                            page_title=t['worksTitle'] + ' — ' + name, page_desc=t['worksIntro'], og_image=og_default, jsonld=None))

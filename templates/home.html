@@ -5,9 +5,11 @@
   {% for sl in slides %}
   <a class="slide{% if loop.first %} is-active{% endif %}" href="{{ prefix }}/works/{{ sl.slug }}/"{% if not loop.first %} aria-hidden="true" tabindex="-1"{% endif %}>
     <img src="/assets/img/lg/{{ sl.file }}" srcset="/assets/img/md/{{ sl.file }} 900w, /assets/img/lg/{{ sl.file }} 1800w" sizes="100vw" alt="{{ sl.title }}" style="object-position: {{ sl.pos }}"{% if loop.first %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
-    <span class="slide__cap"><em>{{ sl.title }}</em><br>{{ sl.series }} · {{ sl.cat }}</span>
   </a>
   {% endfor %}
+  {% if inset %}<a class="home-inset" href="{{ prefix }}/works/{{ inset.slug }}/">
+    <img src="/assets/img/md/{{ inset.file }}" alt="{{ inset.title }}">
+  </a>{% endif %}
   {% if slides|length > 1 %}<div class="slide-dots">
     {% for sl in slides %}<button type="button" aria-label="{{ sl.title }}"{% if loop.first %} aria-current="true"{% endif %}></button>{% endfor %}
   </div>{% endif %}
