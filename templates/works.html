@@ -23,7 +23,7 @@
       <div class="card__over">
         <p class="card__cat">{{ t.cat[s.cat] }}</p>
         <p class="card__title">{{ s.title }}</p>
-        <p class="card__count">{% if s.cover %}{{ t.worksCount.replace('{n}', s.count|string) }}{% else %}{{ t.soon }}{% endif %}</p>
+        <p class="card__count">{% if s.years %}{{ s.years }} · {% endif %}{% if s.cover %}{{ t.worksCount.replace('{n}', s.count|string) }}{% else %}{{ t.soon }}{% endif %}</p>
       </div>
     </a>
     {% endfor %}

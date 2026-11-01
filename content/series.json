@@ -1,6 +1,7 @@
 [
   {
     "slug": "symphony-from-the-sea",
+    "years": "2025–2026",
     "cat": "painting",
     "title": "Symphony from the Sea",
     "count": 28,
@@ -73,6 +74,7 @@
   },
   {
     "slug": "non-relationship-between-nature-and-technology",
+    "years": "2000–2024",
     "cat": "sculpture",
     "title": "Non-relationship between Nature and Technology",
     "count": 15,
@@ -98,6 +100,7 @@
   },
   {
     "slug": "sila-hathai",
+    "years": "2024–2026",
     "cat": "sculpture",
     "title": "Sila-Hathai [Heart and Meaning]",
     "count": 15,
@@ -123,6 +126,7 @@
   },
   {
     "slug": "into-the-edge-of-digital-era",
+    "years": "2012–2014",
     "cat": "computer",
     "title": "Into the Edge of Digital Era",
     "count": 16,
@@ -149,6 +153,7 @@
   },
   {
     "slug": "deja-vu",
+    "years": "2018",
     "cat": "computer",
     "title": "Déjà Vu",
     "count": 15,
@@ -175,6 +180,7 @@
   },
   {
     "slug": "sky-scape",
+    "years": "2022",
     "cat": "computer",
     "title": "Sky Scape",
     "count": 12,
@@ -197,6 +203,7 @@
   },
   {
     "slug": "belief-and-faith",
+    "years": "2008",
     "cat": "drawing",
     "title": "Belief and Faith",
     "count": 10,
@@ -217,6 +224,7 @@
   },
   {
     "slug": "time-form-and-space",
+    "years": "2007",
     "cat": "drawing",
     "title": "Time, Form and Space",
     "count": 11,
