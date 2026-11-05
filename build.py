@@ -5,7 +5,7 @@ Usage:  python3 build.py            -> writes ./dist
 Content lives in ./content (JSON), templates in ./templates,
 original images in ./images (any size; resized automatically).
 """
-import json, re, shutil, time, unicodedata
+import hashlib, json, re, shutil, time, unicodedata
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from PIL import Image
@@ -35,13 +35,22 @@ FONT_EXTRA = {
 
 i18n = json.loads((ROOT / 'content/i18n.json').read_text(encoding='utf-8'))
 # One JSON file per album (edited from /admin with Decap CMS), shown in 'order'
-series = [json.loads(p.read_text(encoding='utf-8')) for p in (ROOT / 'content/albums').glob('*.json')]
+# The page URL comes from the file name (the CMS names new files after the album title)
+series = [{**json.loads(p.read_text(encoding='utf-8')), '_file': p.stem} for p in (ROOT / 'content/albums').glob('*.json')]
 series.sort(key=lambda s: (s.get('order') if isinstance(s.get('order'), (int, float)) else 9999, s.get('title', '')))
 cv_raw = json.loads((ROOT / 'content/cv.json').read_text(encoding='utf-8'))
 
 
+def short_hash(s):
+    return hashlib.md5(s.encode('utf-8')).hexdigest()[:8]
+
+
 def safe_stem(stem):
-    return re.sub(r'[^A-Za-z0-9._-]+', '-', stem).strip('-') or 'image'
+    """URL-safe file name; non-Latin names (e.g. Thai) get a hash so they stay unique."""
+    clean = re.sub(r'[^A-Za-z0-9._-]+', '-', stem).strip('-')
+    if clean == stem:
+        return stem
+    return (clean + '-' if re.search(r'[A-Za-z0-9]', clean) else 'img-') + short_hash(stem)
 
 
 def img_name(v):
@@ -49,9 +58,9 @@ def img_name(v):
     return safe_stem(Path(v).stem) + '.jpg' if v else ''
 
 
-def slugify(s):
-    s = re.sub(r'[^a-z0-9]+', '-', unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower())
-    return s.strip('-') or 'series'
+def slugify(text):
+    s = re.sub(r'[^a-z0-9]+', '-', unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode().lower())
+    return s.strip('-') or 'album-' + short_hash(text)
 
 
 def has_concept(c):
@@ -63,7 +72,8 @@ for s in series:
     s['works'] = [{**w, 'file': img_name(w['file'])} for w in s.get('works') or [] if w.get('file')]
     for w in s['works']:
         w['title'] = (w.get('title') or '').strip() or s['title']
-    s['slug'] = (s.get('slug') or '').strip() or slugify(s['title'])
+    file_stem = s.pop('_file', '')
+    s['slug'] = (s.get('slug') or '').strip() or slugify(file_stem or s['title'])
     s['cover'] = img_name(s.get('cover')) or (s['works'][0]['file'] if s['works'] else '')
     s['count'] = len(s['works'])
     s['tone'] = s.get('tone') or '#3E3B36'

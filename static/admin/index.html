@@ -4,11 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
-  <title>Tanatorn Buranasinlapin — CMS</title>
+  <title>จัดการผลงาน — Tanatorn Buranasinlapin</title>
   <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Sarabun:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+  <script>
+    // Always open the album list as picture cards, sorted by menu order
+    window.CMS_MANUAL_INIT = true;
+    try {
+      localStorage.setItem('decap-cms.entries.viewStyle', 'VIEW_STYLE_GRID');
+      localStorage.removeItem('decap-cms.entries.sort');
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <!-- Decap CMS: edits content/albums/*.json and images/ in GitHub; login via DecapBridge -->
   <script src="https://unpkg.com/decap-cms@3.17.1/dist/decap-cms.js"></script>
+  <script src="/admin/cms.js"></script>
 </body>
 </html>

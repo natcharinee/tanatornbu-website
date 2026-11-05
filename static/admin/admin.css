@@ -1,0 +1,74 @@
+/* Theme for the Decap CMS at /admin — matches tanatornbu.com (warm paper, ink, gold accent).
+   Decap styles use generated class names like "css-abc123-AppHeader"; we target the stable label part. */
+:root {
+  --ink: #222; --ink-2: #4a4a4a; --muted: #6b6b6b; --line: #e6e2dc;
+  --paper: #fff; --paper-2: #f7f5f2; --accent: #b08d57; --accent-dark: #8a6a3b;
+}
+body, button, input, textarea, select { font-family: 'Sarabun', system-ui, sans-serif !important; }
+body { background: var(--paper-2) !important; color: var(--ink); }
+
+/* ---------- Top bar ---------- */
+[class*="-AppHeader-css"] { background: var(--paper) !important; box-shadow: none !important; border-bottom: 1px solid var(--line); }
+[class*="-AppHeaderNavLink"], [class*="-AppHeaderButton"] { color: var(--muted) !important; font-weight: 500 !important; }
+[class*="-AppHeaderNavLink"][class*="buttonActive"], [class*="-AppHeaderNavLink"][class*="buttonActive"] svg { color: var(--ink) !important; }
+[class*="-AppHeaderNavLink"][class*="buttonActive"] { box-shadow: inset 0 -2px 0 var(--accent); }
+[class*="-AppHeaderQuickNewButton"], [class*="-AppHeaderTestRepoIndicator"] { display: none !important; }
+[class*="-AppHeaderSiteLink"] { color: var(--muted) !important; }
+
+/* ---------- Album list ---------- */
+[class*="-SidebarContainer"] { display: none !important; }              /* one collection only: no sidebar needed */
+[class*="-CollectionContainer"] { max-width: 1100px; margin: 0 auto !important; padding: 0 24px; }
+[class*="-CollectionMain"] { padding-left: 0 !important; width: 100%; }
+[class*="-CollectionTopContainer"] { background: transparent !important; box-shadow: none !important; padding: 32px 0 8px !important; }
+[class*="-CollectionTopHeading"] { font-family: 'Lora', 'Sarabun', serif !important; font-size: 32px !important; font-weight: 500 !important; color: var(--ink) !important; }
+[class*="-CollectionTopDescription"] { color: var(--muted) !important; font-size: 15px !important; max-width: 560px; }
+[class*="-CollectionTopNewButton"] { background: var(--ink) !important; color: #fff !important; border-radius: 999px !important; padding: 0 22px !important; height: 44px !important; line-height: 44px !important; font-size: 15px !important; font-weight: 500 !important; }
+[class*="-CollectionTopNewButton"]:hover { background: var(--accent-dark) !important; }
+[class*="-CollectionControlsContainer"] { display: none !important; }   /* sort / view toggles: fixed to cards by menu order */
+[class*="-CardsGrid"] { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; margin: 16px 0 48px !important; }
+[class*="-GridCard-card"] { width: auto !important; height: auto !important; margin: 0 !important; border-radius: 6px !important; box-shadow: none !important; border: 1px solid var(--line); overflow: hidden; transition: border-color .15s, transform .15s; }
+[class*="-GridCard-card"]:hover { border-color: var(--accent); transform: translateY(-2px); }
+[class*="-GridCardLink"] { display: flex !important; flex-direction: column-reverse; height: 100%; }
+[class*="-StyledImage"] { height: 180px !important; background-color: var(--paper-2); }
+[class*="-CardBody"] { padding: 14px 16px 16px !important; height: auto !important; }
+[class*="-CardBody"]::after { display: none !important; }
+[class*="-CardHeading"] { font-family: 'Lora', 'Sarabun', serif !important; font-size: 17px !important; font-weight: 500 !important; color: var(--ink) !important; line-height: 1.35 !important; white-space: normal !important; }
+
+/* ---------- Editor: toolbar ---------- */
+[class*="-ToolbarContainer"] { background: var(--paper) !important; box-shadow: none !important; border-bottom: 1px solid var(--line); }
+[class*="-BackCollection"] { color: var(--ink) !important; font-weight: 500; }
+[class*="-ToolbarDropdown"] [class*="-StyledDropdownButton"] { background: var(--ink) !important; color: #fff !important; border-radius: 999px !important; padding: 0 22px !important; font-weight: 500 !important; }
+[class*="-ToolbarDropdown"] [class*="-StyledDropdownButton"][disabled], [class*="BackStatusUnchanged"] ~ * [class*="-StyledDropdownButton"] { opacity: .85; }
+[class*="-ToolbarButton"] { border-radius: 999px !important; }
+[class*="-PreviewLink"] { color: var(--accent-dark) !important; }
+
+/* ---------- Editor: form ---------- */
+[class*="-ControlPaneContainer"] { background: var(--paper-2); padding: 24px 28px 80px !important; }
+[class*="-ControlContainer"] { margin-top: 18px !important; }
+[class*="-FieldLabel"] { background: transparent !important; color: var(--ink) !important; border: 0 !important; padding: 0 0 6px !important; font-size: 15px !important; font-weight: 600 !important; text-transform: none !important; letter-spacing: 0 !important; }
+[class*="-FieldLabel"]::after { display: none; }
+[class*="-ControlHint"] { color: var(--muted) !important; font-size: 13px !important; margin-top: 6px !important; }
+input[class*="-TextControl"], textarea, [class*="-ControlContainer"] input, [class*="-ControlContainer"] textarea,
+[class*="-ControlContainer"] > [class*="-control"], [class*="-ControlContainer"] [class*="container"] > [class*="control"] {
+  background: var(--paper) !important; border: 1px solid var(--line) !important; border-radius: 6px !important; box-shadow: none !important; font-size: 15px !important;
+}
+[class*="-ControlContainer"] input:focus, [class*="-ControlContainer"] textarea:focus { border-color: var(--accent) !important; outline: none; }
+/* dropdown (category): one border only, and room for Thai glyphs */
+[class*="-ControlContainer"] [class$="-container"] { border: 0 !important; }
+[class*="-ControlContainer"] [class$="-singleValue"] { overflow: visible !important; padding-left: 2px; line-height: 1.6; }
+
+/* lists (works, paragraphs) */
+[class*="-TopBarContainer"] { background: var(--paper) !important; border: 1px solid var(--line) !important; border-radius: 6px !important; padding: 10px 14px !important; }
+[class*="-AddButton"] { background: var(--ink) !important; color: #fff !important; border-radius: 999px !important; padding: 4px 14px !important; }
+[class*="-AddButton"] svg { color: #fff !important; }
+[class*="-ListItem"] { margin-top: 8px !important; }
+[class*="-StyledListItemTopBar"] { background: var(--paper) !important; border: 1px solid var(--line); border-radius: 6px 6px 0 0 !important; }
+[class*="-NestedObjectLabel"] { background: var(--paper) !important; border: 1px solid var(--line) !important; border-top: 0 !important; color: var(--ink) !important; font-size: 15px !important; padding: 10px 14px !important; }
+
+/* image fields */
+[class*="-ImageWrapper"] { border-radius: 6px !important; border: 1px solid var(--line); box-shadow: none !important; }
+[class*="-FileWidgetButton"] { border-radius: 999px !important; background: var(--paper) !important; border: 1px solid var(--line) !important; color: var(--ink) !important; }
+[class*="-FileWidgetButtonRemove"] { color: #b3261e !important; }
+
+/* round preview / sync buttons */
+[class*="-ButtonRound"] { box-shadow: none !important; border: 1px solid var(--line) !important; }

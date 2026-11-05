@@ -35,83 +35,92 @@ logo_url: /apple-touch-icon.png
 media_folder: images
 public_folder: /images
 
+# unicode keeps Thai file names distinct (ascii turned every Thai name into "_-");
+# the build gives them URL-safe names
 slug:
-  encoding: ascii
-  clean_accents: true
+  encoding: unicode
+  clean_accents: false
   sanitize_replacement: "-"
 
 collections:
   - name: albums
-    label: อัลบั้มผลงาน (Albums)
+    label: อัลบั้มผลงาน
     label_singular: อัลบั้ม
-    description: เพิ่มหรือแก้อัลบั้มผลงาน กด Publish แล้วรอประมาณ 1–2 นาที เว็บจะอัปเดตเอง
+    description: กดอัลบั้มเพื่อแก้ไข หรือกด "เพิ่มอัลบั้มใหม่" เมื่อแก้เสร็จกด "เผยแพร่ขึ้นเว็บ" แล้วรอประมาณ 1–2 นาที
     folder: content/albums
     extension: json
     format: json
     create: true
     delete: true
     identifier_field: title
-    slug: "{{slug}}"
-    summary: "{{order}}. {{title}} ({{years}})"
-    sortable_fields: [order, title]
-    view_groups:
-      - { label: หมวด, field: cat }
+    slug: "{{title}}"
+    summary: "{{title}}"
+    sortable_fields:
+      - { field: order, label: ลำดับในเมนู, default_sort: true }
+      - { field: title, label: ชื่ออัลบั้ม }
     fields:
-      - { name: title, label: ชื่ออัลบั้ม (Title), widget: string }
+      # 1. ข้อมูลอัลบั้ม
+      - name: title
+        label: ชื่ออัลบั้ม
+        widget: string
+        hint: "ใช้ชื่อภาษาอังกฤษ ชื่อนี้จะแสดงในเมนูและใช้ตั้งลิงก์ของหน้าอัลบั้ม"
+        pattern: ['[A-Za-z]', "ชื่ออัลบั้มต้องมีตัวอักษรภาษาอังกฤษ"]
       - name: cat
-        label: หมวด (Category)
+        label: หมวด
         widget: select
         options:
-          - { label: Painting / จิตรกรรม, value: painting }
-          - { label: Sculpture / ประติมากรรม, value: sculpture }
-          - { label: Computer Art / คอมพิวเตอร์อาร์ต, value: computer }
-          - { label: Drawing / วาดเส้น, value: drawing }
-      - { name: years, label: ปี (Years), widget: string, required: false, hint: "เช่น 2025–2026 หรือ 2018" }
-      - name: order
-        label: ลำดับการแสดง (Order)
-        widget: number
-        value_type: int
-        min: 1
-        default: 99
-        hint: เลขน้อยแสดงก่อน ทั้งในเมนูและหน้ารวมผลงาน
-      - name: cover
-        label: ภาพปก (Cover)
-        widget: image
-        required: false
-        hint: เว้นว่างได้ ระบบจะใช้ภาพแรกของอัลบั้ม
+          - { label: จิตรกรรม (Painting), value: painting }
+          - { label: ประติมากรรม (Sculpture), value: sculpture }
+          - { label: คอมพิวเตอร์อาร์ต (Computer Art), value: computer }
+          - { label: วาดเส้น (Drawing), value: drawing }
+      - { name: years, label: ปีที่สร้าง, widget: string, required: false, hint: "เช่น 2025–2026 หรือ 2018" }
+      # 2. รูปผลงาน
       - name: works
-        label: ผลงาน (Works)
-        label_singular: ผลงาน
+        label: รูปผลงาน
+        label_singular: รูป
         widget: list
         summary: "{{fields.title}}"
-        hint: ลากเพื่อเรียงลำดับ จำนวนผลงานบนเว็บนับให้อัตโนมัติ รูปควรเป็น JPG/PNG ไม่เกินราว 20 MB
+        collapsed: true
+        hint: "กด \"เพิ่มรูป\" แล้วเลือกไฟล์ (JPG/PNG ไม่เกิน ~20 MB) · ลากแถบ ═ เพื่อเรียงลำดับ · กดชื่อรูปเพื่อแก้"
         fields:
-          - { name: file, label: รูป (Image), widget: image }
-          - { name: title, label: ชื่อผลงาน (Title), widget: string, required: false }
-          - { name: year, label: ปี (Year), widget: string, required: false }
+          - { name: file, label: ไฟล์รูป, widget: image, choose_url: false }
+          - { name: title, label: ชื่อผลงาน, widget: string, required: false, hint: "เว้นว่างได้ จะใช้ชื่ออัลบั้มแทน" }
+          - { name: year, label: ปี, widget: string, required: false }
+      - name: cover
+        label: ภาพปก
+        widget: image
+        required: false
+        choose_url: false
+        hint: "เว้นว่างได้ จะใช้รูปแรกของอัลบั้มเป็นปก"
+      # 3. แนวความคิด
       - name: concept
-        label: แนวความคิด (Concept)
+        label: แนวความคิด (ไม่บังคับ)
         widget: object
         required: false
         collapsed: true
-        hint: กรอกภาษาเดียวก็ได้ ภาษาที่ว่างจะแสดงภาษาอังกฤษ (หรือภาษาที่มี) แทน
+        hint: "กรอกภาษาเดียวก็ได้ ภาษาที่เว้นว่างจะแสดงภาษาอังกฤษ (หรือภาษาที่มี) แทน"
         fields:
-          - name: en
-            label: English
+          - name: th
+            label: ภาษาไทย
             widget: object
             required: false
             collapsed: true
             fields: &concept
-              - { name: lead, label: ย่อหน้าแรก (Lead), widget: text, required: false }
-              - { name: p, label: ย่อหน้าถัดไป (Paragraphs), widget: list, required: false, field: { name: text, label: ย่อหน้า, widget: text } }
-              - { name: quote, label: คำพูด (Quote), widget: text, required: false }
-          - { name: th, label: ไทย, widget: object, required: false, collapsed: true, fields: *concept }
+              - { name: lead, label: ย่อหน้าแรก, widget: text, required: false }
+              - { name: p, label: ย่อหน้าถัดไป, label_singular: ย่อหน้า, widget: list, required: false, field: { name: text, label: ย่อหน้า, widget: text } }
+              - { name: quote, label: คำพูดปิดท้าย, widget: text, required: false }
+          - { name: en, label: English, widget: object, required: false, collapsed: true, fields: *concept }
           - { name: zh, label: 中文, widget: object, required: false, collapsed: true, fields: *concept }
           - { name: fr, label: Français, widget: object, required: false, collapsed: true, fields: *concept }
-      - name: slug
-        label: ชื่อในลิงก์ (URL slug)
-        widget: string
-        required: false
-        hint: เว้นว่างได้ ระบบจะสร้างจากชื่ออัลบั้ม ห้ามแก้ของอัลบั้มเดิม เพราะลิงก์เดิมจะใช้ไม่ได้
-      - { name: tone, label: สีพื้นหลังการ์ด (Card tone), widget: string, required: false, hint: "รหัสสี เช่น #3E3B36 เว้นว่างได้" }
-      - { name: coverPos, label: ตำแหน่งภาพปก (Cover position), widget: string, required: false, hint: "ไม่ต้องแก้ เช่น center หรือ 20% center" }
+      # 4. ตั้งค่าเพิ่มเติม
+      - name: order
+        label: ลำดับในเมนู
+        widget: number
+        value_type: int
+        min: 1
+        default: 99
+        hint: "เลขน้อยแสดงก่อน ทั้งในเมนูและหน้ารวมผลงาน"
+      # Technical values kept as-is from existing albums; not shown in the form
+      - { name: tone, label: tone, widget: hidden, required: false }
+      - { name: coverPos, label: coverPos, widget: hidden, required: false }
+      - { name: slug, label: slug, widget: hidden, required: false }
