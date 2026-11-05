@@ -88,6 +88,10 @@ def build_images():
     out_lg, out_md = DIST / 'assets/img/lg', DIST / 'assets/img/md'
     out_lg.mkdir(parents=True, exist_ok=True)
     out_md.mkdir(parents=True, exist_ok=True)
+    # The CMS (/admin) previews images from /images/<original name>, so publish small copies there too
+    out_cms = DIST / 'images'
+    out_cms.mkdir(parents=True, exist_ok=True)
+    cms_fmt = {'.jpg': 'JPEG', '.jpeg': 'JPEG', '.png': 'PNG', '.webp': 'WEBP'}
     Image.MAX_IMAGE_PIXELS = None
     for src in sorted((ROOT / 'images').glob('*')):
         if src.suffix.lower() not in ('.jpg', '.jpeg', '.png', '.tif', '.tiff', '.webp'):
@@ -99,6 +103,9 @@ def build_images():
             c = im.copy()
             c.thumbnail((size, size), Image.LANCZOS)
             c.save(folder / name, 'JPEG', quality=q, optimize=True, progressive=True)
+        fmt = cms_fmt.get(src.suffix.lower())
+        if fmt:
+            c.save(out_cms / src.name, fmt, **({'quality': 75} if fmt != 'PNG' else {'optimize': True}))
 
 
 def render(tpl, out_path, lang, page_path, **ctx):
