@@ -4,71 +4,71 @@
   "years": "2000–2024",
   "cat": "sculpture",
   "title": "Non-relationship between Nature and Technology",
-  "cover": "non-relation-of-technology-2024.jpg",
+  "cover": "/images/non-relation-of-technology-2024.jpg",
   "tone": "#4A4038",
   "works": [
     {
-      "file": "non-relation-of-technology-2024.jpg",
+      "file": "/images/non-relation-of-technology-2024.jpg",
       "title": "Non Relation of Technology",
       "year": "2024"
     },
     {
-      "file": "life-and-techno-no2.jpg",
+      "file": "/images/life-and-techno-no2.jpg",
       "title": "Life and Techno 2"
     },
     {
-      "file": "nr-life-and-technology-3.jpg",
+      "file": "/images/nr-life-and-technology-3.jpg",
       "title": "Life and Technology 3 (Growing)"
     },
     {
-      "file": "nr-life-and-technology-1-1.jpg",
+      "file": "/images/nr-life-and-technology-1-1.jpg",
       "title": "Life and Technology 1.1"
     },
     {
-      "file": "nr-life-and-technology-fly.jpg",
+      "file": "/images/nr-life-and-technology-fly.jpg",
       "title": "Life and Technology (Fly… Fly… to the Sky) 2"
     },
     {
-      "file": "nr-life-and-technology-7.jpg",
+      "file": "/images/nr-life-and-technology-7.jpg",
       "title": "Life and Technology 7"
     },
     {
-      "file": "nr-black-remains-of-tree.jpg",
+      "file": "/images/nr-black-remains-of-tree.jpg",
       "title": "Black Remains of Tree and Technology"
     },
     {
-      "file": "nr-nature-and-technology.jpg",
+      "file": "/images/nr-nature-and-technology.jpg",
       "title": "Nature and Technology"
     },
     {
-      "file": "nr-remains-of-tree-transformation-2.jpg",
+      "file": "/images/nr-remains-of-tree-transformation-2.jpg",
       "title": "Remains of Tree Transformation 2",
       "year": "2023"
     },
     {
-      "file": "nr-tree-of-technology.jpg",
+      "file": "/images/nr-tree-of-technology.jpg",
       "title": "Tree of Technology",
       "year": "2022"
     },
     {
-      "file": "nr-inside-out.jpg",
+      "file": "/images/nr-inside-out.jpg",
       "title": "Inside Out",
       "year": "2024"
     },
     {
-      "file": "nr-mountain-and-cloud.jpg",
+      "file": "/images/nr-mountain-and-cloud.jpg",
       "title": "Mountain and Cloud"
     },
     {
-      "file": "nr-untitled-1.jpg",
+      "file": "/images/nr-untitled-1.jpg",
       "title": "Untitled"
     },
     {
-      "file": "nr-untitled-2.jpg",
+      "file": "/images/nr-untitled-2.jpg",
       "title": "Untitled"
     },
     {
-      "file": "nr-untitled-3.jpg",
+      "file": "/images/nr-untitled-3.jpg",
       "title": "Untitled"
     }
   ]

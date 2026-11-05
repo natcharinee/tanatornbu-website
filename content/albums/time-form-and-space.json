@@ -5,59 +5,59 @@
   "cat": "drawing",
   "title": "Time, Form and Space",
   "tone": "#4B4842",
-  "cover": "tfs-sivalinga.jpg",
+  "cover": "/images/tfs-sivalinga.jpg",
   "works": [
     {
-      "file": "tfs-object-space-gravity-and-her.jpg",
+      "file": "/images/tfs-object-space-gravity-and-her.jpg",
       "title": "Object, Space, Gravity and Her",
       "year": "2007"
     },
     {
-      "file": "tfs-timeless-object-and-space-gravity.jpg",
+      "file": "/images/tfs-timeless-object-and-space-gravity.jpg",
       "title": "Timeless Object and Space, Gravity",
       "year": "2007"
     },
     {
-      "file": "tfs-to-be-born-on-space-and-gravity.jpg",
+      "file": "/images/tfs-to-be-born-on-space-and-gravity.jpg",
       "title": "To Be Born on Space and Gravity",
       "year": "2007"
     },
     {
-      "file": "tfs-to-be-born-on-space-and-gravity-detail.jpg",
+      "file": "/images/tfs-to-be-born-on-space-and-gravity-detail.jpg",
       "title": "To Be Born on Space and Gravity (detail)",
       "year": "2007"
     },
     {
-      "file": "tfs-timeless-object-on-space.jpg",
+      "file": "/images/tfs-timeless-object-on-space.jpg",
       "title": "Timeless Object on Space",
       "year": "2007"
     },
     {
-      "file": "tfs-detail-from-no2.jpg",
+      "file": "/images/tfs-detail-from-no2.jpg",
       "title": "Detail from No.2"
     },
     {
-      "file": "tfs-object-space-and-gravity.jpg",
+      "file": "/images/tfs-object-space-and-gravity.jpg",
       "title": "Object, Space and Gravity",
       "year": "2009"
     },
     {
-      "file": "tfs-object-space-and-gravity-detail.jpg",
+      "file": "/images/tfs-object-space-and-gravity-detail.jpg",
       "title": "Object, Space and Gravity (detail)",
       "year": "2009"
     },
     {
-      "file": "tfs-her-object-space-and-gravity.jpg",
+      "file": "/images/tfs-her-object-space-and-gravity.jpg",
       "title": "Her Object, Space and Gravity",
       "year": "2009"
     },
     {
-      "file": "tfs-object-space-and-gravity-2.jpg",
+      "file": "/images/tfs-object-space-and-gravity-2.jpg",
       "title": "Object, Space and Gravity",
       "year": "2009"
     },
     {
-      "file": "tfs-sivalinga.jpg",
+      "file": "/images/tfs-sivalinga.jpg",
       "title": "Sivalinga",
       "year": "2009"
     }

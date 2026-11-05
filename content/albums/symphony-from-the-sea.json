@@ -4,7 +4,7 @@
   "years": "2025–2026",
   "cat": "painting",
   "title": "Symphony from the Sea",
-  "cover": "evening-by-the-seashore.jpg",
+  "cover": "/images/evening-by-the-seashore.jpg",
   "tone": "#34474F",
   "concept": {
     "en": {
@@ -42,115 +42,115 @@
   },
   "works": [
     {
-      "file": "evening-by-the-seashore.jpg",
+      "file": "/images/evening-by-the-seashore.jpg",
       "title": "Evening by the Seashore"
     },
     {
-      "file": "a-serene-day-at-the-seaside.jpg",
+      "file": "/images/a-serene-day-at-the-seaside.jpg",
       "title": "A Serene Day at the Seaside"
     },
     {
-      "file": "blue-serenity.jpg",
+      "file": "/images/blue-serenity.jpg",
       "title": "Blue Serenity"
     },
     {
-      "file": "breeze-on-the-beach.jpg",
+      "file": "/images/breeze-on-the-beach.jpg",
       "title": "Breeze on the Beach"
     },
     {
-      "file": "by-the-sea.jpg",
+      "file": "/images/by-the-sea.jpg",
       "title": "By the Sea"
     },
     {
-      "file": "diary-of-the-beach-no1.jpg",
+      "file": "/images/diary-of-the-beach-no1.jpg",
       "title": "Diary of the Beach No.1"
     },
     {
-      "file": "diary-of-the-beach-no2.jpg",
+      "file": "/images/diary-of-the-beach-no2.jpg",
       "title": "Diary of the Beach No.2"
     },
     {
-      "file": "evening-lullaby-from-the-sea.jpg",
+      "file": "/images/evening-lullaby-from-the-sea.jpg",
       "title": "Evening Lullaby from the Sea"
     },
     {
-      "file": "happy-day-on-the-beach.jpg",
+      "file": "/images/happy-day-on-the-beach.jpg",
       "title": "Happy Day on the Beach"
     },
     {
-      "file": "melody-for-a-past-love-by-the-sea.jpg",
+      "file": "/images/melody-for-a-past-love-by-the-sea.jpg",
       "title": "Melody for a Past Love by the Sea"
     },
     {
-      "file": "melody-of-the-evening.jpg",
+      "file": "/images/melody-of-the-evening.jpg",
       "title": "Melody of the Evening"
     },
     {
-      "file": "melody-of-the-wind.jpg",
+      "file": "/images/melody-of-the-wind.jpg",
       "title": "Melody of the Wind"
     },
     {
-      "file": "reflections-by-the-sea.jpg",
+      "file": "/images/reflections-by-the-sea.jpg",
       "title": "Reflections by the Sea"
     },
     {
-      "file": "song-of-the-dusk-sea.jpg",
+      "file": "/images/song-of-the-dusk-sea.jpg",
       "title": "Song of the Dusk Sea"
     },
     {
-      "file": "symbol-no1.jpg",
+      "file": "/images/symbol-no1.jpg",
       "title": "Symbol No.1"
     },
     {
-      "file": "symbols-in-the-sand.jpg",
+      "file": "/images/symbols-in-the-sand.jpg",
       "title": "Symbols in the Sand"
     },
     {
-      "file": "symphony-from-the-sea-no3.jpg",
+      "file": "/images/symphony-from-the-sea-no3.jpg",
       "title": "Symphony from the Sea No.3"
     },
     {
-      "file": "symphony-from-the-sea-no5.jpg",
+      "file": "/images/symphony-from-the-sea-no5.jpg",
       "title": "Symphony from the Sea No.5"
     },
     {
-      "file": "symphony-of-the-dawn.jpg",
+      "file": "/images/symphony-of-the-dawn.jpg",
       "title": "Symphony of the Dawn"
     },
     {
-      "file": "symphony-of-the-dawn-no1.jpg",
+      "file": "/images/symphony-of-the-dawn-no1.jpg",
       "title": "Symphony of the Dawn No.1"
     },
     {
-      "file": "symphony-of-the-dawn-no2.jpg",
+      "file": "/images/symphony-of-the-dawn-no2.jpg",
       "title": "Symphony of the Dawn No.2"
     },
     {
-      "file": "symphony-of-the-lonely-sea.jpg",
+      "file": "/images/symphony-of-the-lonely-sea.jpg",
       "title": "Symphony of the Lonely Sea"
     },
     {
-      "file": "twilight-at-the-beach.jpg",
+      "file": "/images/twilight-at-the-beach.jpg",
       "title": "Twilight at the Beach"
     },
     {
-      "file": "twilight-by-the-shore.jpg",
+      "file": "/images/twilight-by-the-shore.jpg",
       "title": "Twilight by the Shore"
     },
     {
-      "file": "visions-from-the-shore.jpg",
+      "file": "/images/visions-from-the-shore.jpg",
       "title": "Visions from the Shore"
     },
     {
-      "file": "walking-alone-on-the-sandy-beach.jpg",
+      "file": "/images/walking-alone-on-the-sandy-beach.jpg",
       "title": "Walking Alone on the Sandy Beach"
     },
     {
-      "file": "when-the-evening-come.jpg",
+      "file": "/images/when-the-evening-come.jpg",
       "title": "When the Evening Come"
     },
     {
-      "file": "whispers-of-the-sea.jpg",
+      "file": "/images/whispers-of-the-sea.jpg",
       "title": "Whispers of the Sea"
     }
   ]
