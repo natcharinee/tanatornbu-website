@@ -5,7 +5,7 @@ Usage:  python3 build.py            -> writes ./dist
 Content lives in ./content (JSON), templates in ./templates,
 original images in ./images (any size; resized automatically).
 """
-import json, shutil, time
+import json, re, shutil, time, unicodedata
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from PIL import Image
@@ -36,6 +36,34 @@ FONT_EXTRA = {
 i18n = json.loads((ROOT / 'content/i18n.json').read_text(encoding='utf-8'))
 series = json.loads((ROOT / 'content/series.json').read_text(encoding='utf-8'))
 cv_raw = json.loads((ROOT / 'content/cv.json').read_text(encoding='utf-8'))
+
+
+def img_name(v):
+    """Pages CMS stores '/images/foo.png'; the build outputs 'foo.jpg'."""
+    return Path(v).stem + '.jpg' if v else ''
+
+
+def slugify(s):
+    s = re.sub(r'[^a-z0-9]+', '-', unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower())
+    return s.strip('-') or 'series'
+
+
+def has_concept(c):
+    return isinstance(c, dict) and bool((c.get('lead') or '').strip())
+
+
+# Normalise series.json so albums added from the CMS need only a title, category and images
+for s in series:
+    s['works'] = [{**w, 'file': img_name(w['file'])} for w in s.get('works') or [] if w.get('file')]
+    for w in s['works']:
+        w['title'] = (w.get('title') or '').strip() or s['title']
+    s['slug'] = (s.get('slug') or '').strip() or slugify(s['title'])
+    s['cover'] = img_name(s.get('cover')) or (s['works'][0]['file'] if s['works'] else '')
+    s['count'] = len(s['works'])
+    s['tone'] = s.get('tone') or '#3E3B36'
+    s['concept'] = {k: v for k, v in (s.get('concept') or {}).items() if has_concept(v)}
+    for v in s['concept'].values():
+        v['p'] = [p for p in v.get('p') or [] if (p or '').strip()]
 for l in LANGS:
     t = i18n[l['key']]
     l.update(code=t['code'], short=t['short'], name=t['langName'])
@@ -140,7 +168,8 @@ def main():
                 meta = ' · '.join(x for x in (w.get('year'), pick(w.get('medium'), lang), w.get('size')) if x)
                 works.append({**w, 'meta': meta})
             sv = {**s, 'works': works}
-            concept = (s.get('concept') or {}).get(lang)
+            cc = s['concept']
+            concept = cc.get(lang) or cc.get('en') or next(iter(cc.values()), None)
             desc = concept['lead'] if concept else s['title'] + ' — ' + t['cat'][s['cat']] + ' · ' + name
             og = '/assets/img/lg/' + s['cover'] if s.get('cover') else og_default
             urls.append(render('series.html', 'works/%s/index.html' % s['slug'], lang, '/works/%s/' % s['slug'],

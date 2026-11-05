@@ -1,0 +1,102 @@
+# Pages CMS (https://app.pagescms.org) — backoffice for adding albums and images.
+# Saving in the CMS commits to GitHub; Vercel then rebuilds the site.
+media:
+  input: images
+  output: /images
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
+
+content:
+  - name: series
+    label: อัลบั้มผลงาน (Albums)
+    type: file
+    path: content/series.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: ชื่ออัลบั้ม (Title)
+        type: string
+        required: true
+      - name: cat
+        label: หมวด (Category)
+        type: select
+        required: true
+        options:
+          values:
+            - { name: painting, label: Painting / จิตรกรรม }
+            - { name: sculpture, label: Sculpture / ประติมากรรม }
+            - { name: computer, label: Computer Art / คอมพิวเตอร์อาร์ต }
+            - { name: drawing, label: Drawing / วาดเส้น }
+      - name: years
+        label: ปี (Years)
+        description: เช่น 2025–2026 หรือ 2018
+        type: string
+      - name: slug
+        label: ชื่อในลิงก์ (URL slug)
+        description: เว้นว่างได้ ระบบจะสร้างจากชื่ออัลบั้ม ห้ามแก้ของอัลบั้มเดิม เพราะลิงก์เดิมจะเสีย
+        type: string
+      - name: cover
+        label: ภาพปก (Cover)
+        description: เว้นว่างได้ ระบบจะใช้ภาพแรกของอัลบั้ม
+        type: image
+      - name: works
+        label: ผลงาน (Works)
+        description: เรียงลำดับได้ จำนวนผลงานบนเว็บนับให้อัตโนมัติ
+        type: object
+        list: true
+        fields:
+          - name: file
+            label: รูป (Image) — JPG/PNG ไม่เกิน ~20 MB
+            type: image
+            required: true
+          - name: title
+            label: ชื่อผลงาน (Title)
+            type: string
+          - name: year
+            label: ปี (Year)
+            type: string
+      - name: concept
+        label: แนวความคิด (Concept) — กรอกภาษาเดียวก็ได้ ภาษาที่ว่างจะแสดงภาษาอังกฤษแทน
+        type: object
+        fields:
+          - name: en
+            label: English
+            type: object
+            fields:
+              - { name: lead, label: ย่อหน้าแรก (Lead), type: text }
+              - { name: p, label: ย่อหน้าถัดไป (Paragraphs), type: text, list: true }
+              - { name: quote, label: คำพูด (Quote), type: text }
+          - name: th
+            label: ไทย
+            type: object
+            fields:
+              - { name: lead, label: ย่อหน้าแรก (Lead), type: text }
+              - { name: p, label: ย่อหน้าถัดไป (Paragraphs), type: text, list: true }
+              - { name: quote, label: คำพูด (Quote), type: text }
+          - name: zh
+            label: 中文
+            type: object
+            fields:
+              - { name: lead, label: ย่อหน้าแรก (Lead), type: text }
+              - { name: p, label: ย่อหน้าถัดไป (Paragraphs), type: text, list: true }
+              - { name: quote, label: คำพูด (Quote), type: text }
+          - name: fr
+            label: Français
+            type: object
+            fields:
+              - { name: lead, label: ย่อหน้าแรก (Lead), type: text }
+              - { name: p, label: ย่อหน้าถัดไป (Paragraphs), type: text, list: true }
+              - { name: quote, label: คำพูด (Quote), type: text }
+      - name: tone
+        label: สีพื้นหลังการ์ด (Card tone)
+        description: "รหัสสี เช่น #3E3B36 เว้นว่างได้"
+        type: string
+      - name: coverPos
+        label: ตำแหน่งภาพปก (Cover position)
+        description: ไม่ต้องแก้ ใช้จัดตำแหน่งครอปภาพปก เช่น center หรือ 20% center
+        type: string
+      - name: count
+        label: จำนวนผลงาน (นับอัตโนมัติ ไม่ต้องกรอก)
+        type: number
+        hidden: true
