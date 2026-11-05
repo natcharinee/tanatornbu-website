@@ -1,0 +1,51 @@
+{
+  "order": 7,
+  "slug": "belief-and-faith",
+  "years": "2008",
+  "cat": "drawing",
+  "title": "Belief and Faith",
+  "tone": "#3E3B36",
+  "cover": "belief-and-faith-01.jpg",
+  "works": [
+    {
+      "file": "belief-and-faith-01.jpg",
+      "title": "Belief and Faith No.1"
+    },
+    {
+      "file": "belief-and-faith-02.jpg",
+      "title": "Belief and Faith No.2"
+    },
+    {
+      "file": "belief-and-faith-03.jpg",
+      "title": "Belief and Faith No.3"
+    },
+    {
+      "file": "belief-and-faith-04.jpg",
+      "title": "Belief and Faith No.4"
+    },
+    {
+      "file": "belief-and-faith-05.jpg",
+      "title": "Belief and Faith No.5"
+    },
+    {
+      "file": "belief-and-faith-06.jpg",
+      "title": "Belief and Faith No.6"
+    },
+    {
+      "file": "belief-and-faith-07.jpg",
+      "title": "Belief and Faith No.7"
+    },
+    {
+      "file": "belief-and-faith-08.jpg",
+      "title": "Belief and Faith No.8"
+    },
+    {
+      "file": "belief-and-faith-09.jpg",
+      "title": "Belief and Faith No.9"
+    },
+    {
+      "file": "belief-and-faith-10.jpg",
+      "title": "Belief and Faith No.10"
+    }
+  ]
+}

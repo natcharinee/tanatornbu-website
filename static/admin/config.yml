@@ -1,0 +1,98 @@
+# Decap CMS config for tanatornbu.com/admin
+# Saving here commits to GitHub; Vercel then rebuilds the site in ~1–2 minutes.
+
+# --- BACKEND: replace this block with the one DecapBridge generates for the site ---
+backend:
+  name: git-gateway
+  repo: natcharinee/tanatornbu-website
+  branch: main
+# --- end of DecapBridge block ---
+
+locale: th
+site_url: https://tanatornbu.com
+display_url: https://tanatornbu.com
+logo_url: /apple-touch-icon.png
+
+media_folder: images
+public_folder: /images
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: albums
+    label: อัลบั้มผลงาน (Albums)
+    label_singular: อัลบั้ม
+    description: เพิ่มหรือแก้อัลบั้มผลงาน กด Publish แล้วรอประมาณ 1–2 นาที เว็บจะอัปเดตเอง
+    folder: content/albums
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{order}}. {{title}} ({{years}})"
+    sortable_fields: [order, title]
+    view_groups:
+      - { label: หมวด, field: cat }
+    fields:
+      - { name: title, label: ชื่ออัลบั้ม (Title), widget: string }
+      - name: cat
+        label: หมวด (Category)
+        widget: select
+        options:
+          - { label: Painting / จิตรกรรม, value: painting }
+          - { label: Sculpture / ประติมากรรม, value: sculpture }
+          - { label: Computer Art / คอมพิวเตอร์อาร์ต, value: computer }
+          - { label: Drawing / วาดเส้น, value: drawing }
+      - { name: years, label: ปี (Years), widget: string, required: false, hint: "เช่น 2025–2026 หรือ 2018" }
+      - name: order
+        label: ลำดับการแสดง (Order)
+        widget: number
+        value_type: int
+        min: 1
+        default: 99
+        hint: เลขน้อยแสดงก่อน ทั้งในเมนูและหน้ารวมผลงาน
+      - name: cover
+        label: ภาพปก (Cover)
+        widget: image
+        required: false
+        hint: เว้นว่างได้ ระบบจะใช้ภาพแรกของอัลบั้ม
+      - name: works
+        label: ผลงาน (Works)
+        label_singular: ผลงาน
+        widget: list
+        summary: "{{fields.title}}"
+        hint: ลากเพื่อเรียงลำดับ จำนวนผลงานบนเว็บนับให้อัตโนมัติ รูปควรเป็น JPG/PNG ไม่เกินราว 20 MB
+        fields:
+          - { name: file, label: รูป (Image), widget: image }
+          - { name: title, label: ชื่อผลงาน (Title), widget: string, required: false }
+          - { name: year, label: ปี (Year), widget: string, required: false }
+      - name: concept
+        label: แนวความคิด (Concept)
+        widget: object
+        required: false
+        collapsed: true
+        hint: กรอกภาษาเดียวก็ได้ ภาษาที่ว่างจะแสดงภาษาอังกฤษ (หรือภาษาที่มี) แทน
+        fields:
+          - name: en
+            label: English
+            widget: object
+            required: false
+            collapsed: true
+            fields: &concept
+              - { name: lead, label: ย่อหน้าแรก (Lead), widget: text, required: false }
+              - { name: p, label: ย่อหน้าถัดไป (Paragraphs), widget: list, required: false, field: { name: text, label: ย่อหน้า, widget: text } }
+              - { name: quote, label: คำพูด (Quote), widget: text, required: false }
+          - { name: th, label: ไทย, widget: object, required: false, collapsed: true, fields: *concept }
+          - { name: zh, label: 中文, widget: object, required: false, collapsed: true, fields: *concept }
+          - { name: fr, label: Français, widget: object, required: false, collapsed: true, fields: *concept }
+      - name: slug
+        label: ชื่อในลิงก์ (URL slug)
+        widget: string
+        required: false
+        hint: เว้นว่างได้ ระบบจะสร้างจากชื่ออัลบั้ม ห้ามแก้ของอัลบั้มเดิม เพราะลิงก์เดิมจะใช้ไม่ได้
+      - { name: tone, label: สีพื้นหลังการ์ด (Card tone), widget: string, required: false, hint: "รหัสสี เช่น #3E3B36 เว้นว่างได้" }
+      - { name: coverPos, label: ตำแหน่งภาพปก (Cover position), widget: string, required: false, hint: "ไม่ต้องแก้ เช่น center หรือ 20% center" }

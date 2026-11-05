@@ -1,0 +1,71 @@
+{
+  "order": 3,
+  "slug": "sila-hathai",
+  "years": "2024–2026",
+  "cat": "sculpture",
+  "title": "Sila-Hathai [Heart and Meaning]",
+  "tone": "#5A4E43",
+  "cover": "sh-heart-and-meaning-2.jpg",
+  "works": [
+    {
+      "file": "sh-heart-and-meaning-2.jpg",
+      "title": "Heart and Meaning 2 (สาว 18)"
+    },
+    {
+      "file": "sh-blue-lullaby.jpg",
+      "title": "Blue Lullaby"
+    },
+    {
+      "file": "sh-lullaby-for-growing-up-baby.jpg",
+      "title": "Lullaby for Growing Up Baby"
+    },
+    {
+      "file": "sh-like-a-virgin.jpg",
+      "title": "Like a Virgin"
+    },
+    {
+      "file": "sh-little-girl.jpg",
+      "title": "Little Girl"
+    },
+    {
+      "file": "sh-mechanical-civilization.jpg",
+      "title": "Mechanical Civilization"
+    },
+    {
+      "file": "sh-mechanical-seed-genesis.jpg",
+      "title": "Mechanical Seed Genesis"
+    },
+    {
+      "file": "sh-mechanical-seed-prototype.jpg",
+      "title": "Mechanical Seed Prototype"
+    },
+    {
+      "file": "sh-modern-woman.jpg",
+      "title": "Modern Woman"
+    },
+    {
+      "file": "sh-new-civilization.jpg",
+      "title": "New Civilization"
+    },
+    {
+      "file": "sh-origin-core.jpg",
+      "title": "Origin Core"
+    },
+    {
+      "file": "sh-the-age-of-machines.jpg",
+      "title": "The Age of Machines"
+    },
+    {
+      "file": "sh-the-suffering-of-hunted-animals.jpg",
+      "title": "The Suffering of Hunted Animals"
+    },
+    {
+      "file": "sh-when-i-dream-i-see-only-death.jpg",
+      "title": "When I Dream, I See Only Death"
+    },
+    {
+      "file": "sh-zen.jpg",
+      "title": "Zen"
+    }
+  ]
+}

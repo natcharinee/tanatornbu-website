@@ -1,0 +1,75 @@
+{
+  "order": 5,
+  "slug": "deja-vu",
+  "years": "2018",
+  "cat": "computer",
+  "title": "Déjà Vu",
+  "cover": "life-and-time.jpg",
+  "coverPos": "18% center",
+  "tone": "#3A2318",
+  "works": [
+    {
+      "file": "life-and-time.jpg",
+      "title": "Life and Time"
+    },
+    {
+      "file": "deja-vu-01.jpg",
+      "title": "Adam with a Chair of Apple and Snails"
+    },
+    {
+      "file": "deja-vu-02.jpg",
+      "title": "Birth of Venus",
+      "year": "2018"
+    },
+    {
+      "file": "deja-vu-03.jpg",
+      "title": "Diary of Nightmare"
+    },
+    {
+      "file": "deja-vu-04.jpg",
+      "title": "Last Song for 23–24 Nov Protest",
+      "year": "2012"
+    },
+    {
+      "file": "deja-vu-05.jpg",
+      "title": "Miss You Too… Salvador Dalí"
+    },
+    {
+      "file": "deja-vu-06.jpg",
+      "title": "My Enigma of William Tell",
+      "year": "2012"
+    },
+    {
+      "file": "deja-vu-07.jpg",
+      "title": "Nightmare with the Tree of Subconscious"
+    },
+    {
+      "file": "deja-vu-08.jpg",
+      "title": "Old Men and Venus"
+    },
+    {
+      "file": "deja-vu-09.jpg",
+      "title": "Self-Transformation with Apple"
+    },
+    {
+      "file": "deja-vu-10.jpg",
+      "title": "Smoking Self-Portrait Breaking Frame"
+    },
+    {
+      "file": "deja-vu-11.jpg",
+      "title": "Three Ugly Men and a Snake"
+    },
+    {
+      "file": "deja-vu-12.jpg",
+      "title": "Untitled"
+    },
+    {
+      "file": "deja-vu-13.jpg",
+      "title": "Man Civilizations"
+    },
+    {
+      "file": "deja-vu-14.jpg",
+      "title": "Pittura Metafisica, Suffering Man"
+    }
+  ]
+}

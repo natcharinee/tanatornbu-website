@@ -22,7 +22,7 @@ LANGS = [
     {'key': 'zh', 'prefix': '/zh'},
     {'key': 'fr', 'prefix': '/fr'},
 ]
-# Home page banner image(s), from series.json works; more than one becomes a slideshow
+# Home page banner image(s), from album works; more than one becomes a slideshow
 HOME_BANNER = ['melody-of-the-evening.jpg']
 # Small framed work shown in the banner's corner (None to hide)
 HOME_INSET = 'life-and-techno-no2.jpg'
@@ -34,13 +34,19 @@ FONT_EXTRA = {
 }
 
 i18n = json.loads((ROOT / 'content/i18n.json').read_text(encoding='utf-8'))
-series = json.loads((ROOT / 'content/series.json').read_text(encoding='utf-8'))
+# One JSON file per album (edited from /admin with Decap CMS), shown in 'order'
+series = [json.loads(p.read_text(encoding='utf-8')) for p in (ROOT / 'content/albums').glob('*.json')]
+series.sort(key=lambda s: (s.get('order') if isinstance(s.get('order'), (int, float)) else 9999, s.get('title', '')))
 cv_raw = json.loads((ROOT / 'content/cv.json').read_text(encoding='utf-8'))
 
 
+def safe_stem(stem):
+    return re.sub(r'[^A-Za-z0-9._-]+', '-', stem).strip('-') or 'image'
+
+
 def img_name(v):
-    """Pages CMS stores '/images/foo.png'; the build outputs 'foo.jpg'."""
-    return Path(v).stem + '.jpg' if v else ''
+    """The CMS stores '/images/Foo Bar.png'; the build outputs 'Foo-Bar.jpg'."""
+    return safe_stem(Path(v).stem) + '.jpg' if v else ''
 
 
 def slugify(s):
@@ -52,7 +58,7 @@ def has_concept(c):
     return isinstance(c, dict) and bool((c.get('lead') or '').strip())
 
 
-# Normalise series.json so albums added from the CMS need only a title, category and images
+# Normalise album data so albums added from the CMS need only a title, category and images
 for s in series:
     s['works'] = [{**w, 'file': img_name(w['file'])} for w in s.get('works') or [] if w.get('file')]
     for w in s['works']:
@@ -86,7 +92,7 @@ def build_images():
     for src in sorted((ROOT / 'images').glob('*')):
         if src.suffix.lower() not in ('.jpg', '.jpeg', '.png', '.tif', '.tiff', '.webp'):
             continue
-        name = src.stem + '.jpg'
+        name = safe_stem(src.stem) + '.jpg'
         im = Image.open(src)
         im = im.convert('RGB')
         for size, folder, q in ((1800, out_lg, 80), (900, out_md, 78)):
@@ -118,6 +124,7 @@ def main():
     shutil.copytree(ROOT / 'static/css', DIST / 'assets/css')
     shutil.copytree(ROOT / 'static/js', DIST / 'assets/js')
     shutil.copytree(ROOT / 'files', DIST / 'files')
+    shutil.copytree(ROOT / 'static/admin', DIST / 'admin')
     for f in (ROOT / 'static/root').glob('*'):
         shutil.copy(f, DIST / f.name)
 
@@ -189,7 +196,7 @@ def main():
     sm += ['  <url><loc>%s%s</loc></url>' % (SITE_URL, u) for u in urls]
     sm.append('</urlset>')
     (DIST / 'sitemap.xml').write_text('\n'.join(sm) + '\n', encoding='utf-8')
-    (DIST / 'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE_URL, encoding='utf-8')
+    (DIST / 'robots.txt').write_text('User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: %s/sitemap.xml\n' % SITE_URL, encoding='utf-8')
     print('Built %d pages into %s' % (len(urls) + 1, DIST))
 
 
