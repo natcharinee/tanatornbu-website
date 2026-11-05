@@ -31,11 +31,26 @@
     {% for g in cv %}
     <div class="cv__group">
       <h3>{{ g.title }}</h3>
-      <ul>
-        {% for it in g['items'] %}
-        <li><span class="cv__y">{{ it.y }}</span><span class="cv__t"><strong>{{ it.t }}</strong>{% if it.d %}<span>{{ it.d }}</span>{% endif %}</span></li>
-        {% endfor %}
-      </ul>
+      {# Long sections show the 10 most recent entries; the rest open with a native <details> toggle (works without JS) #}
+      {% set items = g['items'] %}
+      {% set first = items if items|length <= 12 else items[:10] %}
+      <div class="cv__list">
+        <ul>
+          {% for it in first %}
+          <li><span class="cv__y">{{ it.y }}</span><span class="cv__t"><strong>{{ it.t }}</strong>{% if it.d %}<span>{{ it.d }}</span>{% endif %}</span></li>
+          {% endfor %}
+        </ul>
+        {% if items|length > 12 %}
+        <details class="cv__more">
+          <summary><span class="cv__more-show">{{ t.cvMore.replace('{n}', items|length|string) }}</span><span class="cv__more-hide">{{ t.cvLess }}</span></summary>
+          <ul>
+            {% for it in items[10:] %}
+            <li><span class="cv__y">{{ it.y }}</span><span class="cv__t"><strong>{{ it.t }}</strong>{% if it.d %}<span>{{ it.d }}</span>{% endif %}</span></li>
+            {% endfor %}
+          </ul>
+        </details>
+        {% endif %}
+      </div>
     </div>
     {% endfor %}
   </div>

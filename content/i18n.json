@@ -36,6 +36,7 @@
     ],
     "download": "Download CV (PDF)", "cvKicker": "— curriculum vitae —", "cvTitle": "Curriculum Vitae",
     "sec": ["Education", "Solo Exhibitions", "Selected Group Exhibitions", "Awards & Experience"],
+    "cvMore": "Show all {n}", "cvLess": "Show less",
     "notFound": "Page not found", "backHome": "Back to home"
   },
   "th": {
@@ -75,6 +76,7 @@
     ],
     "download": "ดาวน์โหลด CV (PDF)", "cvKicker": "— ประวัติการทำงาน —", "cvTitle": "ประวัติการทำงาน",
     "sec": ["การศึกษา", "นิทรรศการเดี่ยว", "นิทรรศการกลุ่ม (คัดสรร)", "รางวัลและประสบการณ์"],
+    "cvMore": "ดูทั้งหมด {n} รายการ", "cvLess": "ย่อรายการ",
     "notFound": "ไม่พบหน้านี้", "backHome": "กลับหน้าแรก"
   },
   "zh": {
@@ -114,6 +116,7 @@
     ],
     "download": "下载简历 (PDF)", "cvKicker": "— 履历 —", "cvTitle": "艺术履历",
     "sec": ["教育背景", "个展", "部分群展", "荣誉与经历"],
+    "cvMore": "查看全部 {n} 项", "cvLess": "收起",
     "notFound": "页面不存在", "backHome": "返回首页"
   },
   "fr": {
@@ -153,6 +156,7 @@
     ],
     "download": "Télécharger le CV (PDF)", "cvKicker": "— curriculum vitæ —", "cvTitle": "Curriculum vitæ",
     "sec": ["Formation", "Expositions personnelles", "Expositions collectives (sélection)", "Distinctions et expériences"],
+    "cvMore": "Tout afficher ({n})", "cvLess": "Réduire",
     "notFound": "Page introuvable", "backHome": "Retour à l’accueil"
   }
 }
