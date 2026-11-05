@@ -114,4 +114,12 @@
   CMS.registerPreviewTemplate('albums', AlbumPreview);
 
   CMS.init();
+
+  // Hide the "duplicate" options in the publish menu (Decap has no setting for this)
+  var hiddenItems = [overrides.editor.editorToolbar.publishAndDuplicate, overrides.editor.editorToolbar.duplicate];
+  new MutationObserver(function () {
+    document.querySelectorAll('[role="menuitem"]').forEach(function (el) {
+      if (hiddenItems.indexOf(el.textContent.trim()) !== -1) el.style.display = 'none';
+    });
+  }).observe(document.body, { childList: true, subtree: true });
 })();
