@@ -16,9 +16,15 @@ body { background: var(--paper-2) !important; color: var(--ink); }
 [class*="-AppHeaderSiteLink"] { color: var(--muted) !important; }
 
 /* ---------- Album list ---------- */
-[class*="-SidebarContainer"] { display: none !important; }              /* one collection only: no sidebar needed */
-[class*="-CollectionContainer"] { max-width: 1100px; margin: 0 auto !important; padding: 0 24px; }
-[class*="-CollectionMain"] { padding-left: 0 !important; width: 100%; }
+/* side menu: switch between "อัลบั้มผลงาน" and "หมวดหมู่" */
+[class*="-SidebarContainer"] { background: transparent !important; box-shadow: none !important; padding-top: 32px !important; width: 220px !important; }
+[class*="-SidebarHeading"] { font-size: 13px !important; font-weight: 500 !important; color: var(--muted) !important; padding: 0 16px 6px !important; margin: 0 !important; }
+[class*="-SidebarContainer"] [class*="-SearchContainer"] { display: none !important; }
+[class*="-SidebarNavLink"] { border: 0 !important; border-radius: 999px !important; margin: 2px 0 !important; padding: 10px 16px !important; font-size: 16px !important; color: var(--ink-2) !important; }
+[class*="-SidebarNavLink"].active, [class*="-SidebarNavLink"][aria-current="page"] { background: var(--ink) !important; color: #fff !important; }
+[class*="-SidebarNavLink"].active svg, [class*="-SidebarNavLink"][aria-current="page"] svg { color: #fff !important; }
+[class*="-CollectionContainer"] { max-width: 1200px; margin: 0 auto !important; padding: 0 24px; }
+[class*="-CollectionMain"] { width: 100%; }
 [class*="-CollectionTopContainer"] { background: transparent !important; box-shadow: none !important; padding: 32px 0 8px !important; }
 [class*="-CollectionTopHeading"] { font-family: 'Lora', 'Sarabun', serif !important; font-size: 32px !important; font-weight: 500 !important; color: var(--ink) !important; }
 [class*="-CollectionTopDescription"] { color: var(--muted) !important; font-size: 15px !important; max-width: 560px; }

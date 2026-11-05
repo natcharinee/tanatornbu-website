@@ -1,0 +1,10 @@
+{
+  "order": 3,
+  "name_th": "คอมพิวเตอร์อาร์ต",
+  "name_en": "Computer Art",
+  "name_zh": "计算机艺术",
+  "name_fr": "Art numérique",
+  "cover": "/images/life-and-time.jpg",
+  "coverPos": "20% center",
+  "tone": "#3A2318"
+}

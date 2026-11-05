@@ -1,0 +1,10 @@
+{
+  "order": 1,
+  "name_th": "จิตรกรรม",
+  "name_en": "Painting",
+  "name_zh": "绘画",
+  "name_fr": "Peinture",
+  "cover": "/images/evening-by-the-seashore.jpg",
+  "coverPos": "center",
+  "tone": "#34474F"
+}

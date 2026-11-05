@@ -5,18 +5,18 @@
 
   // --- Plain-language Thai wording (merged over Decap's built-in Thai) ---
   var overrides = {
-    app: { header: { content: 'อัลบั้มผลงาน', media: 'คลังรูปภาพ' } },
+    app: { header: { content: 'ผลงาน', media: 'คลังรูปภาพ' } },
     collection: {
-      sidebar: { collections: 'เมนู', searchAll: 'ค้นหาอัลบั้ม' },
+      sidebar: { collections: 'จัดการ', searchAll: 'ค้นหา' },
       collectionTop: { newButton: '＋ เพิ่ม%{collectionLabel}ใหม่', sortBy: 'เรียงตาม' },
-      entries: { loadingEntries: 'กำลังโหลดอัลบั้ม...', noEntries: 'ยังไม่มีอัลบั้ม' }
+      entries: { loadingEntries: 'กำลังโหลด...', noEntries: 'ยังไม่มีรายการ' }
     },
     editor: {
       editor: {
-        onPublishing: 'เผยแพร่อัลบั้มนี้ขึ้นเว็บเลยไหม? เว็บจะอัปเดตภายในประมาณ 1–2 นาที',
-        onDeletePublishedEntry: 'ลบอัลบั้มนี้ออกจากเว็บถาวรเลยไหม? (รูปในคลังรูปภาพจะยังอยู่)',
+        onPublishing: 'เผยแพร่ขึ้นเว็บเลยไหม? เว็บจะอัปเดตภายในประมาณ 1–2 นาที',
+        onDeletePublishedEntry: 'ลบรายการนี้ออกจากเว็บถาวรเลยไหม? (รูปในคลังรูปภาพจะยังอยู่)',
         onLeavePage: 'ยังมีการแก้ไขที่ยังไม่ได้เผยแพร่ ออกจากหน้านี้เลยไหม?',
-        loadingEntry: 'กำลังโหลดอัลบั้ม...'
+        loadingEntry: 'กำลังโหลด...'
       },
       editorControlPane: { widget: { required: 'กรุณากรอก%{fieldLabel}' } },
       editorInterface: { togglePreview: 'เปิด/ปิดตัวอย่างหน้าเว็บ', toggleScrollSync: 'เลื่อนตัวอย่างตามฟอร์ม' },
@@ -25,13 +25,13 @@
         publishing: 'กำลังเผยแพร่...',
         published: 'เผยแพร่แล้ว',
         publishNow: 'เผยแพร่ขึ้นเว็บ',
-        publishAndCreateNew: 'เผยแพร่ แล้วเพิ่มอัลบั้มใหม่',
-        publishAndDuplicate: 'เผยแพร่ แล้วทำสำเนาอัลบั้มนี้',
-        duplicate: 'ทำสำเนาอัลบั้มนี้',
-        deleteEntry: 'ลบอัลบั้ม',
-        deletePublishedEntry: 'ลบอัลบั้ม',
+        publishAndCreateNew: 'เผยแพร่ แล้วเพิ่มรายการใหม่',
+        publishAndDuplicate: 'เผยแพร่ แล้วทำสำเนา',
+        duplicate: 'ทำสำเนา',
+        deleteEntry: 'ลบ',
+        deletePublishedEntry: 'ลบ',
         deleting: 'กำลังลบ...',
-        backCollection: ' กลับไปรายการอัลบั้ม',
+        backCollection: ' กลับไปรายการ%{collectionLabel}',
         unsavedChanges: 'ยังไม่ได้เผยแพร่',
         changesSaved: 'เผยแพร่แล้ว ตรงกับบนเว็บ',
         deployButtonLabel: 'เปิดหน้าเว็บจริง'
@@ -67,8 +67,6 @@
   CMS.registerPreviewStyle('/assets/css/style.css');
   CMS.registerPreviewStyle('body{background:#fff}.gallery .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}.work{cursor:default}.pv-empty{padding:40px 0;text-align:center;color:#888;font-style:italic}', { raw: true });
 
-  var CAT = { painting: 'Painting', sculpture: 'Sculpture', computer: 'Computer Art', drawing: 'Drawing' };
-
   function AlbumPreview(props) {
     var data = props.entry.get('data');
     var get = function (k) { return data.get(k); };
@@ -76,7 +74,11 @@
     var concept = (get('concept') && get('concept').toJS()) || {};
     var c = ['th', 'en', 'zh', 'fr'].map(function (k) { return concept[k]; }).filter(function (x) { return x && x.lead; })[0];
     var title = get('title') || 'ชื่ออัลบั้ม';
-    var cat = CAT[get('cat')] || '';
+    // English category name of the chosen category (the relation widget keeps its data in fieldsMetaData)
+    var catKey = get('cat') || '';
+    var catMeta = props.fieldsMetaData && props.fieldsMetaData.getIn(['cat', 'categories', catKey]);
+    var cat = (catMeta && (catMeta.get('name_en') || catMeta.get('name_th'))) ||
+      catKey.replace(/-/g, ' ').replace(/\b\w/g, function (m) { return m.toUpperCase(); });
 
     return h('div', {},
       h('div', { className: 'titlebar' }, h('div', { className: 'wrap' }, h('p', { className: 'titlebar__name' }, cat || 'Work of art'))),

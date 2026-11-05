@@ -80,9 +80,34 @@ for s in series:
     s['concept'] = {k: v for k, v in (s.get('concept') or {}).items() if has_concept(v)}
     for v in s['concept'].values():
         v['p'] = [p for p in v.get('p') or [] if (p or '').strip()]
+
+# Categories: one JSON file per category (also edited from /admin); the file name is the category key.
+categories = []
+for p in (ROOT / 'content/categories').glob('*.json'):
+    c = json.loads(p.read_text(encoding='utf-8'))
+    c['key'] = p.stem
+    categories.append(c)
+categories.sort(key=lambda c: (c.get('order') if isinstance(c.get('order'), (int, float)) else 9999, c.get('name_en', '')))
+known = {c['key'] for c in categories}
+if any(s.get('cat') not in known for s in series):
+    # An album points at a deleted/missing category: show it under "Other" instead of breaking the build
+    categories.append({'key': 'other', 'other': True, 'tone': '#3E3B36'})
+    for s in series:
+        if s.get('cat') not in known:
+            s['cat'] = 'other'
+
+
+def cat_name(c, lang):
+    if c.get('other'):
+        return i18n[lang]['catOther']
+    return next((c.get('name_' + k) for k in (lang, 'en', 'th') if (c.get('name_' + k) or '').strip()), c['key'])
+
+
 for l in LANGS:
     t = i18n[l['key']]
     l.update(code=t['code'], short=t['short'], name=t['langName'])
+    # Templates read category names in menu order as t.cat
+    t['cat'] = {c['key']: cat_name(c, l['key']) for c in categories}
 
 env = Environment(loader=FileSystemLoader(str(ROOT / 'templates')), autoescape=select_autoescape(['html']))
 env.globals['nav_series'] = series
@@ -149,11 +174,8 @@ def main():
     cat_counts = {}
     for s in series:
         cat_counts[s['cat']] = cat_counts.get(s['cat'], 0) + 1
-    cat_imgs = {'painting': ('evening-by-the-seashore.jpg', 'center'),
-                'sculpture': ('non-relation-of-technology-2024.jpg', 'center 35%'),
-                'computer': ('life-and-time.jpg', '20% center'),
-                'drawing': ('', 'center')}
-    cat_tones = {'painting': '#34474F', 'sculpture': '#4A4038', 'computer': '#3A2318', 'drawing': '#3E3B36'}
+    cat_imgs = {c['key']: (img_name(c.get('cover')), c.get('coverPos') or 'center') for c in categories}
+    cat_tones = {c['key']: c.get('tone') or '#3E3B36' for c in categories}
     og_default = '/assets/img/lg/life-and-time.jpg'
     person = json.dumps({
         '@context': 'https://schema.org', '@type': 'Person', 'name': 'Tanatorn Buranasinlapin',
@@ -167,7 +189,7 @@ def main():
         t = i18n[lang]
         name = 'Tanatorn Buranasinlapin'
         cats = []
-        for k in ('painting', 'sculpture', 'computer', 'drawing'):
+        for k in t['cat']:
             n = cat_counts.get(k, 0)
             fmt = t['seriesOne'] if n == 1 else t['seriesMany']
             cats.append({'key': k, 'name': t['cat'][k], 'meta': fmt.replace('{n}', str(n)),

@@ -67,12 +67,13 @@ collections:
         pattern: ['[A-Za-z]', "ชื่ออัลบั้มต้องมีตัวอักษรภาษาอังกฤษ"]
       - name: cat
         label: หมวด
-        widget: select
-        options:
-          - { label: จิตรกรรม (Painting), value: painting }
-          - { label: ประติมากรรม (Sculpture), value: sculpture }
-          - { label: คอมพิวเตอร์อาร์ต (Computer Art), value: computer }
-          - { label: วาดเส้น (Drawing), value: drawing }
+        widget: relation
+        collection: categories
+        value_field: "{{slug}}"
+        search_fields: [name_th, name_en]
+        display_fields: ["{{name_th}} ({{name_en}})"]
+        options_length: 50
+        hint: "ถ้ายังไม่มีหมวดที่ต้องการ ไปที่เมนู \"หมวดหมู่\" ทางซ้ายเพื่อเพิ่มก่อน"
       - { name: years, label: ปีที่สร้าง, widget: string, required: false, hint: "เช่น 2025–2026 หรือ 2018" }
       # 2. รูปผลงาน
       - name: works
@@ -124,3 +125,38 @@ collections:
       - { name: tone, label: tone, widget: hidden, required: false }
       - { name: coverPos, label: coverPos, widget: hidden, required: false }
       - { name: slug, label: slug, widget: hidden, required: false }
+
+  - name: categories
+    label: หมวดหมู่
+    label_singular: หมวดหมู่
+    description: หมวดหมู่จะแสดงในเมนู Work of Art และปุ่มกรองในหน้ารวมผลงาน ถ้าลบหมวดที่ยังมีอัลบั้มอยู่ อัลบั้มนั้นจะย้ายไปอยู่ "อื่น ๆ" จนกว่าจะเลือกหมวดใหม่
+    folder: content/categories
+    extension: json
+    format: json
+    create: true
+    delete: true
+    identifier_field: name_en
+    slug: "{{name_en}}"
+    editor: { preview: false }
+    summary: "{{name_th}} ({{name_en}})"
+    sortable_fields:
+      - { field: order, label: ลำดับในเมนู, default_sort: true }
+    fields:
+      - { name: name_th, label: ชื่อหมวด (ภาษาไทย), widget: string }
+      - name: name_en
+        label: ชื่อหมวด (ภาษาอังกฤษ)
+        widget: string
+        pattern: ['[A-Za-z]', "ต้องมีตัวอักษรภาษาอังกฤษ"]
+        hint: "ใช้ตั้งลิงก์ของหมวด ตั้งแล้วไม่ควรเปลี่ยน"
+      - { name: name_zh, label: ชื่อหมวด (中文), widget: string, required: false, hint: "เว้นว่างได้ จะแสดงภาษาอังกฤษแทน" }
+      - { name: name_fr, label: ชื่อหมวด (Français), widget: string, required: false, hint: "เว้นว่างได้ จะแสดงภาษาอังกฤษแทน" }
+      - name: order
+        label: ลำดับในเมนู
+        widget: number
+        value_type: int
+        min: 1
+        default: 99
+        hint: "เลขน้อยแสดงก่อน"
+      - { name: cover, label: ภาพปกของหมวด, widget: image, required: false, choose_url: false }
+      - { name: coverPos, label: coverPos, widget: hidden, required: false }
+      - { name: tone, label: tone, widget: hidden, required: false }
