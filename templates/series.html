@@ -36,15 +36,14 @@
 
 <section class="gallery" aria-label="{{ t.gridAria }}">
   {% if s.works %}
-  <div class="wrap">
+  <div class="wrap"><div class="bento">
     {% for w in s.works %}
-    <button type="button" class="work" data-full="/assets/img/lg/{{ w.file }}" data-title="{{ w.title }}" data-meta="{{ w.meta }}" aria-label="{{ t.openW }}: {{ w.title }}">
-      <span class="work__img"><img src="/assets/img/md/{{ w.file }}" alt="{{ w.title }}" loading="lazy"></span>
-      <span class="work__title">{{ w.title }}</span>
-      {% if w.meta %}<span class="work__meta">{{ w.meta }}</span>{% endif %}
+    <button type="button" class="work tile-{{ w.tile }}" data-full="/assets/img/lg/{{ w.file }}" data-title="{{ w.title }}" data-meta="{{ w.meta }}" aria-label="{{ t.openW }}: {{ w.title }}">
+      <span class="work__img"><img src="/assets/img/{{ 'lg' if w.tile in ('feature', 'banner') else 'md' }}/{{ w.file }}" alt="{{ w.title }}" width="{{ w.w }}" height="{{ w.h }}" loading="lazy"></span>
+      <span class="work__cap"><span class="work__title">{{ w.title }}</span>{% if w.meta %}<span class="work__meta">{{ w.meta }}</span>{% endif %}</span>
     </button>
     {% endfor %}
-  </div>
+  </div></div>
   {% if s.works|length < s.count %}<p class="wrap" style="margin-top: 56px; text-align: center; font-family: var(--serif); font-style: italic; color: var(--muted)">{{ t.moreSoon }}</p>{% endif %}
   {% else %}
   <div class="wrap"><p class="soon">{{ t.soonWorks }}</p></div>

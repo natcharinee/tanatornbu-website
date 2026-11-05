@@ -63,6 +63,32 @@ def slugify(text):
     return s.strip('-') or 'album-' + short_hash(text)
 
 
+# Bento layout for album pages: a 4-column grid filled by a repeating 7-tile pattern
+# (one 2x2 feature, two 2x1 wide tiles, four 1x1 tiles = 12 cells = 3 full rows), with the
+# feature alternating left/right. The last few works are sized so the final rows are always full.
+BENTO_A = ['feature', 'small', 'small', 'wide', 'small', 'wide', 'small']   # feature on the left
+BENTO_B = ['small', 'small', 'feature', 'wide', 'small', 'wide', 'small']   # feature on the right
+TAIL_ROWS = {1: ['banner'], 2: ['wide', 'wide'], 3: ['wide', 'small', 'small'], 4: ['small'] * 4}
+
+
+def bento_tiles(n):
+    tiles, i, block = [], 0, 0
+    while n - i >= 7:
+        tiles += BENTO_A if block % 2 == 0 else BENTO_B
+        i += 7
+        block += 1
+    rest = n - i
+    # split the remainder into rows of 2–4 tiles (or a single full-width banner)
+    rows = []
+    while rest > 0:
+        k = 4 if rest >= 6 or rest == 4 else 3 if rest in (3, 5) else rest
+        rows.append(k)
+        rest -= k
+    for k in rows:
+        tiles += TAIL_ROWS[k]
+    return tiles
+
+
 def has_concept(c):
     return isinstance(c, dict) and bool((c.get('lead') or '').strip())
 
@@ -119,6 +145,9 @@ def pick(v, lang):
     return v or ''
 
 
+IMG_SIZES = {}  # output name -> (width, height) of the gallery-size image, for true-proportion layouts
+
+
 def build_images():
     out_lg, out_md = DIST / 'assets/img/lg', DIST / 'assets/img/md'
     out_lg.mkdir(parents=True, exist_ok=True)
@@ -138,6 +167,7 @@ def build_images():
             c = im.copy()
             c.thumbnail((size, size), Image.LANCZOS)
             c.save(folder / name, 'JPEG', quality=q, optimize=True, progressive=True)
+        IMG_SIZES[name] = c.size
         fmt = cms_fmt.get(src.suffix.lower())
         if fmt:
             c.save(out_cms / src.name, fmt, **({'quality': 75} if fmt != 'PNG' else {'optimize': True}))
@@ -210,9 +240,11 @@ def main():
         for i, s in enumerate(series):
             nxt = series[(i + 1) % len(series)]
             works = []
-            for w in s.get('works', []):
+            tiles = bento_tiles(len(s.get('works', [])))
+            for i, w in enumerate(s.get('works', [])):
                 meta = ' · '.join(x for x in (w.get('year'), pick(w.get('medium'), lang), w.get('size')) if x)
-                works.append({**w, 'meta': meta})
+                iw, ih = IMG_SIZES.get(w['file'], (1, 1))
+                works.append({**w, 'meta': meta, 'w': iw, 'h': ih, 'tile': tiles[i]})
             sv = {**s, 'works': works}
             cc = s['concept']
             concept = cc.get(lang) or cc.get('en') or next(iter(cc.values()), None)
