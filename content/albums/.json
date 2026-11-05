@@ -1,0 +1,14 @@
+{
+  "order": 94,
+  "title": "เทส ",
+  "cat": "sculpture",
+  "years": "2026",
+  "cover": "/images/_-.png",
+  "works": [
+    {
+      "file": "/images/deja-vu-01.jpg",
+      "title": "gml",
+      "year": "2222"
+    }
+  ]
+}
